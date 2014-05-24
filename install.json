@@ -1,0 +1,19 @@
+{
+    "any": [
+        { "source": "bin",  "dest": "~/.local/bin" },
+        { "source": "fish", "dest": "~/.config/fish" },
+        { "source": "gradle", "dest": "~/.gradle" },
+        { "source": "misc", "dest": "~/" }
+    ],
+    "linux2": [
+        { "source": "autostart",      "dest": "~/.config/autostart" },
+        { "source": "fontconfig",     "dest": "~/.config/fontconfig" },
+        { "source": "gtk-3.0",        "dest": "~/.config/gtk-3.0" },
+        { "source": "redshift",       "dest": "~/.config" },
+        { "source": "sublime-text-3", "dest": "~/.config/sublime-text-3" },
+        { "source": "terminator",     "dest": "~/.config/terminator" }
+    ],
+    "darwin": [
+        { "source": "sublime-text-3", "dest": "~/Library/Application Support/Sublime Text 3" }
+    ]
+}

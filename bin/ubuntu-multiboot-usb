@@ -1,0 +1,91 @@
+#!/usr/bin/python
+#
+# ubuntu-multiboot-usb - Configures GRUB 2 to boot Ubuntu LiveCD/DVDs
+#
+# Copyright (c) 2013 Lorenzo Villani
+#
+# The MIT License:
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+
+
+import argparse
+import os.path
+import string
+import subprocess
+import sys
+
+
+GRUB_ENTRY_TEMPLATE = string.Template("""
+menuentry "${iso}" {
+    loopback loop (hd0,1)/${iso}
+    linux  (loop)/casper/vmlinuz.efi boot=casper iso-scan/filename=/${iso} noeject noprompt quiet splash
+    initrd (loop)/casper/initrd.lz
+}
+""")
+
+# GRUB_ENTRY_TEMPLATE = string.Template("""
+# menuentry "${iso}" {
+#     loopback loop (hd0,1)/${iso}
+#     linux  (loop)/casper/vmlinuz.efi automatic-ubiquity boot=casper iso-scan/filename=/${iso} noeject noprompt preseed/file=/isodevice/preseed.cfg
+#     initrd (loop)/casper/initrd.lz
+# }
+# """)
+
+
+def main():
+    argument_parser = argparse.ArgumentParser()
+    argument_parser.add_argument("mount_point")
+    argument_parser.add_argument("-i", dest="install", metavar="device", nargs=1, help="Install GRUB 2")
+    arguments = argument_parser.parse_args()
+
+    if arguments.install:
+        install_grub2(arguments.install[0], arguments.mount_point)
+
+    update_grub_cfg(arguments.mount_point)
+
+
+def install_grub2(device, mount_point):
+    boot_directory = os.path.join(mount_point, "boot")
+
+    call("grub-install", "--boot-directory=" + boot_directory, device)
+
+
+def call(*args):
+    subprocess.check_call(args)
+
+
+def update_grub_cfg(mount_point):
+    grub_dir = os.path.join(mount_point, "boot", "grub")
+    grub_config = os.path.join(grub_dir, "grub.cfg")
+
+    if not os.path.isdir(grub_dir):
+        print str(grub_dir) + ": no such directory."
+        print "You should re-run this script passing the '-i' switch."
+
+        sys.exit(1)
+
+    with open(grub_config, "w") as grubcfg:
+        for iso in filter(lambda x: x.endswith(".iso"), os.listdir(mount_point)):
+            grubcfg.write(GRUB_ENTRY_TEMPLATE.substitute({"iso": iso}))
+
+
+if __name__ == '__main__':
+    main()

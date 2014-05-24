@@ -1,0 +1,69 @@
+#!/bin/bash
+
+set -e
+set -u
+
+
+RELEASE="$(lsb_release -cs)"
+
+
+#
+# Repositories
+#
+
+# Repositories
+echo "
+deb http://ubuntu.fastbull.org/ubuntu/ ${RELEASE} main restricted universe multiverse
+deb http://ubuntu.fastbull.org/ubuntu/ ${RELEASE}-backports main restricted universe multiverse
+deb http://ubuntu.fastbull.org/ubuntu/ ${RELEASE}-proposed main restricted universe multiverse
+deb http://ubuntu.fastbull.org/ubuntu/ ${RELEASE}-security main restricted universe multiverse
+deb http://ubuntu.fastbull.org/ubuntu/ ${RELEASE}-updates main restricted universe multiverse
+
+deb http://archive.canonical.com/ubuntu ${RELEASE} partner
+deb http://extras.ubuntu.com/ubuntu ${RELEASE} main
+" | sudo tee /etc/apt/sources.list
+
+# Pin repositories
+echo "
+Package: *
+Pin: release a=${RELEASE}*
+Pin-Priority: 9990
+" | sudo tee /etc/apt/preferences
+
+# PPAs
+if [ "${RELEASE}" = "precise" ]; then
+    sudo apt-add-repository -y ppa:chris-lea/node.js
+    sudo apt-add-repository -y ppa:fish-shell/release-2
+    sudo apt-add-repository -y ppa:git-core/ppa
+fi
+
+#
+# Install Packages
+#
+
+sudo apt-get update
+sudo apt-get dist-upgrade -qqy
+
+sudo apt-get install -qqy aptitude encfs fish terminator
+sudo apt-get install -qqy build-essential cmake
+sudo apt-get install -qqy git git-gui gitk meld subversion
+sudo apt-get install -qqy nodejs nodejs-legacy
+sudo apt-get install -qqy python python-dev bpython
+
+if [ "${RELEASE}" != "precise" ]; then
+    sudo apt-get install -qqy the-silver-searcher
+fi
+
+#
+# Change default shell
+#
+
+chsh -s /usr/bin/fish lvillani
+chsh -s /usr/bin/fish root
+
+#
+# Cleanup
+#
+
+rm -f /etc/apt/*.save
+rm -f /etc/apt/sources.list.d/*.save

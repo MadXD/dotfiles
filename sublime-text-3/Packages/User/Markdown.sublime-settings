@@ -1,0 +1,9 @@
+{
+    "trim_trailing_white_space_on_save": true,
+    "draw_centered": false,
+    "word_wrap": false,
+    "wrap_width": 100,
+    "rulers": [100],
+    "line_numbers": true,
+    "highlight_line": true
+}

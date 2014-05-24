@@ -1,0 +1,94 @@
+#!/bin/bash
+
+set -e
+
+#
+# Install Homebrew - http://brew.sh
+#
+
+test -x "/usr/local/bin/brew" || {
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+}
+
+brew install caskroom/cask/brew-cask
+
+brew tap caskroom/cask
+brew tap caskroom/versions
+brew tap homebrew/binary
+brew tap homebrew/versions
+
+brew update
+brew upgrade
+
+#
+# Brew: Formulas
+#
+
+brew install android-ndk
+brew install android-sdk
+brew install ant
+brew install encfs
+brew install fish
+brew install git-extras
+brew install go
+brew install go-app-engine-64
+brew install gradle
+brew install node
+brew install packer
+brew install python
+brew install python3
+brew install qt
+brew install qt5
+brew install ssh-copy-id
+brew install the_silver_searcher
+
+#
+# Brew: Casks
+#
+
+brew cask install android-studio
+brew cask install appcleaner
+brew cask install ax88772  # ASIX AX88772 (used in Hamlet USB-Ethernet dongle)
+brew cask install chromecast
+brew cask install flux
+brew cask install google-chrome
+brew cask install handbrake
+brew cask install hipchat
+brew cask install iterm2-beta
+brew cask install java
+brew cask install mcs783x  # ASIX MCS783x (used in StarTech USBDOCK2)
+brew cask install musicmanager
+brew cask install pl2303   # Prolific PL2303 serial to USB converter
+brew cask install radiant-player
+brew cask install skype
+brew cask install steam
+brew cask install toggldesktop
+brew cask install vagrant
+brew cask install virtualbox
+brew cask install vmware-fusion
+
+#
+# Time Machine
+#
+
+# Disable local snapshots: http://support.apple.com/kb/ht4878
+sudo tmutil disablelocal
+
+# Don't backup the whole system. Just user files.
+sudo defaults write /Library/Preferences/com.apple.TimeMachine.plist SkipSystemFiles -bool true
+sudo defaults write /Library/Preferences/com.apple.TimeMachine.plist SkipPaths "(
+    '/Applications',
+    '/System',
+    '~${USER}/.vagrant.d',
+    '~${USER}/Documents/Virtual Machines.localized',
+    '~${USER}/Downloads',
+    '~${USER}/Library',
+    '~${USER}/VirtualBox VMs'
+)"
+
+#
+# Cleanup
+#
+
+brew cleanup
+brew cask cleanup

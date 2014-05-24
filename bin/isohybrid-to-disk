@@ -1,0 +1,54 @@
+#!/bin/sh
+#
+# isohybrid-to-disk - Writes an ISO-hybrid file to a disk.
+# Copyright (C)  2012 Lorenzo Villani
+#
+# The MIT License:
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+
+set -e
+set -u
+
+#
+# Ensures we are getting at least two arguments on the command line.  This
+# should respond with usage information even when we are invoked with "-h" or
+# "--help" as first argument.
+#
+test "${#}" -lt 2 && {
+    echo "Usage: ${0} <iso> <device>"
+    exit 1
+}
+
+ISO="${1}"
+DEVICE="${2}"
+
+#
+# Makes sure that the input file is a real ISO image.
+#
+test "$(file -ib ${ISO})" = "application/x-iso9660-image; charset=binary" || {
+    echo "${ISO} must be an ISO9660 file."
+    exit 1
+}
+
+#
+# Writes image to the device.
+#
+dd if="${ISO}" of="${DEVICE}" bs=8M oflag=sync

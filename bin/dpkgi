@@ -1,0 +1,5 @@
+#!/bin/sh
+
+wget -O /tmp/dpkg.deb ${1}
+sudo dpkg -i /tmp/dpkg.deb
+rm -f /tmp/dpkg.deb
