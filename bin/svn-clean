@@ -1,6 +1,0 @@
-#!/bin/sh
-
-svn status --no-ignore | awk '{print $2}' | xargs rm -rf
-svn revert -R .
-svn update
-
