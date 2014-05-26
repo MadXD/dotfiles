@@ -66,6 +66,7 @@ brew cask install toggldesktop
 brew cask install vagrant
 brew cask install virtualbox
 brew cask install vmware-fusion
+brew cask install wireshark-dev  # Qt version which doesn't require X11
 
 #
 # Time Machine
