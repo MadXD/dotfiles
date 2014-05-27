@@ -39,11 +39,11 @@ fi
 #
 
 pkginst() {
-    sudo apt-get install -qqy ${@}
+    sudo apt-get install -y ${@}
 }
 
 sudo apt-get update
-sudo apt-get dist-upgrade -qqy
+sudo apt-get dist-upgrade -y
 
 pkginst aptitude
 pkginst bpython
@@ -76,4 +76,4 @@ sudo chsh -s /usr/bin/fish root
 sudo rm -f /etc/apt/*.save
 sudo rm -f /etc/apt/sources.list.d/*.save
 
-sudo apt-get autoremove --purge -qqy
+sudo apt-get autoremove --purge -y
