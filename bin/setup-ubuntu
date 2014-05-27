@@ -39,7 +39,6 @@ fi
 #
 
 pkginst() {
-    echo "Installing ${@}..."
     sudo apt-get install -qqy ${@}
 }
 
@@ -74,9 +73,7 @@ sudo chsh -s /usr/bin/fish root
 # Cleanup
 #
 
-echo "Cleaning up..."
-
-rm -f /etc/apt/*.save
-rm -f /etc/apt/sources.list.d/*.save
+sudo rm -f /etc/apt/*.save
+sudo rm -f /etc/apt/sources.list.d/*.save
 
 sudo apt-get autoremove --purge -qqy
