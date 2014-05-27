@@ -67,8 +67,8 @@ pkginst tig
 # Change default shell
 #
 
-chsh -s /usr/bin/fish lvillani
-chsh -s /usr/bin/fish root
+sudo chsh -s /usr/bin/fish lvillani
+sudo chsh -s /usr/bin/fish root
 
 #
 # Cleanup
