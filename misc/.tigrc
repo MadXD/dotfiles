@@ -2,8 +2,8 @@
 # ~/.tigrc
 #
 
-bind generic Down move-down
-bind generic Up move-up
+bind generic <Down> move-down
+bind generic <Up> move-up
 
 bind generic G !git gc --aggressive --prune=all
 bind generic U !git cleanup
