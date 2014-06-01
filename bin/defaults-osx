@@ -36,6 +36,33 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false
 
 #
+# Globals: Key Remapping
+#
+# I switch frequently between different operating systems and OS X is the only one with a different
+# layout for modifier keys. OS X looses the war and gets its keys remapped.
+#
+# Since Command is equivalent to the Ctrl key it get remapped so that fingers are in the same
+# position regardless of whether I'm using Linux, OS X or Windows.
+#
+
+# Apple Internal Keyboard (Vendor ID: 1452 - Product ID: 602)
+defaults write NSGlobalDomain     "com.apple.keyboard.modifiermapping.1452-602-0" "(
+    { HIDKeyboardModifierMappingDst = 4;  HIDKeyboardModifierMappingSrc = 0;  },
+    { HIDKeyboardModifierMappingDst = 4;  HIDKeyboardModifierMappingSrc = 2;  },
+    { HIDKeyboardModifierMappingDst = 2;  HIDKeyboardModifierMappingSrc = 3;  },
+    { HIDKeyboardModifierMappingDst = 10; HIDKeyboardModifierMappingSrc = 11; },
+    { HIDKeyboardModifierMappingDst = 3;  HIDKeyboardModifierMappingSrc = 4;  },
+    { HIDKeyboardModifierMappingDst = 11; HIDKeyboardModifierMappingSrc = 12; })"
+
+# Unicomp EnduraPro (Vendor ID: 2873 - Product ID: 1)
+defaults write NSGlobalDomain com.apple.keyboard.modifiermapping.2873-1-0 "(
+    { HIDKeyboardModifierMappingDst = 4;  HIDKeyboardModifierMappingSrc = 0;  },
+    { HIDKeyboardModifierMappingDst = 4;  HIDKeyboardModifierMappingSrc = 2;  },
+    { HIDKeyboardModifierMappingDst = 12; HIDKeyboardModifierMappingSrc = 10; },
+    { HIDKeyboardModifierMappingDst = 2;  HIDKeyboardModifierMappingSrc = 4;  },
+    { HIDKeyboardModifierMappingDst = 10; HIDKeyboardModifierMappingSrc = 12; })"
+
+#
 # Dashboard
 #
 
