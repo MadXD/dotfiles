@@ -39,7 +39,7 @@ fi
 #
 
 pkginst() {
-    sudo apt-get install -y ${@}
+    sudo apt-get install -qy ${@}
 }
 
 sudo apt-get update
