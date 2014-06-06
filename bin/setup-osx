@@ -53,7 +53,6 @@ brew cask install flux
 brew cask install google-chrome
 brew cask install handbrake
 brew cask install hipchat
-# brew cask install java
 brew cask install mcs783x  # ASIX MCS783x (used in StarTech USBDOCK2)
 brew cask install pl2303   # Prolific PL2303 serial to USB converter
 brew cask install skype
