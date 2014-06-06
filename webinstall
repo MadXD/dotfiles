@@ -27,5 +27,7 @@ if [ ! -d "${DOTFILES_DIR}" ]; then
         git clone git://github.com/lvillani/dotfiles.git "${DOTFILES_DIR}"
     fi
 
-    "${DOTFILES_DIR}/install"
+    pushd "${DOTFILES_DIR}"
+        ./install
+    popd
 fi
