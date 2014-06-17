@@ -36,7 +36,6 @@ brew install gradle
 brew install node
 brew install packer
 brew install python
-brew install python3
 brew install ssh-copy-id
 brew install the_silver_searcher
 
@@ -47,7 +46,6 @@ brew install the_silver_searcher
 brew cask install android-studio
 brew cask install appcleaner
 brew cask install ax88772  # ASIX AX88772 (used in Hamlet USB-Ethernet dongle)
-brew cask install cheatsheet
 brew cask install flash
 brew cask install fluid
 brew cask install flux
