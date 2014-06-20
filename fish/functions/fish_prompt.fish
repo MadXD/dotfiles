@@ -2,17 +2,17 @@ function fish_prompt
    # Empty line
    echo
 
-   set_color $fish_color_user
+   set_color green
    printf '%s' (whoami)
    set_color normal
    printf ' at '
 
-   set_color $fish_color_host
+   set_color cyan
    printf '%s' (hostname | cut -d . -f 1)
    set_color normal
    printf ' in '
 
-   set_color $fish_color_cwd
+   set_color green
    printf '%s' (prompt_pwd)
    set_color normal
 
