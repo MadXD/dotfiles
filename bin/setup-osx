@@ -46,6 +46,7 @@ brew install the_silver_searcher
 brew cask install android-studio
 brew cask install appcleaner
 brew cask install ax88772  # ASIX AX88772 (used in Hamlet USB-Ethernet dongle)
+brew cask install colors
 brew cask install flash
 brew cask install fluid
 brew cask install flux
