@@ -2,10 +2,8 @@
 	"installed_packages":
 	[
 		"All Autocomplete",
-		"Better CoffeeScript",
 		"CMake",
 		"Color Highlighter",
-		"CSScomb JS",
 		"Emmet",
 		"fish-shell",
 		"GitGutter",
@@ -16,7 +14,6 @@
 		"MarkdownEditing",
 		"Sass",
 		"SideBarEnhancements",
-		"Stylus",
 		"Wrap Plus"
 	]
 }
