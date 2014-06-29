@@ -1,0 +1,35 @@
+#!/usr/bin/env python2
+
+import subprocess
+
+
+COMPONENTS = [
+    # Base SDK tools
+    'build-tools-20.0.0',
+    'platform-tools',
+    'tools',
+
+    # Platform SDK
+    'android-16',
+    'android-19',
+
+    # System Images
+    'sys-img-x86-android-16',
+    'sys-img-x86-android-19',
+
+    # Support
+    'extra-android-m2repository'
+    'extra-android-support',
+
+    # Google Stuff
+    'addon-google_apis_x86-google-19',
+    'extra-google-gcm',
+    'extra-google-m2repository',
+    'extra-google-play_apk_expansion',
+    'extra-google-play_billing',
+    'extra-google-play_licensing',
+    'extra-google-webdriver',
+]
+
+
+subprocess.check_call(['android', 'update', 'sdk', '-s', '-u', '-t', ','.join(COMPONENTS)])
