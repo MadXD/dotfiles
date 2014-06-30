@@ -5,6 +5,7 @@ import subprocess
 
 COMPONENTS = [
     # Base SDK tools
+    'build-tools-19.1',
     'build-tools-20.0.0',
     'platform-tools',
     'tools',
