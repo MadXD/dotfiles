@@ -27,40 +27,38 @@ Pin-Priority: 9990
 " | sudo tee /etc/apt/preferences
 
 if [ "${RELEASE}" = "precise" ]; then
-    sudo apt-add-repository -y ppa:chris-lea/node.js
-    sudo apt-add-repository -y ppa:fish-shell/release-2
     sudo apt-add-repository -y ppa:git-core/ppa
     sudo apt-add-repository -y ppa:lvillani/silversearcher
-    sudo apt-add-repository -y ppa:webupd8team/sublime-text-3
 fi
+
+sudo apt-add-repository -y ppa:chris-lea/node.js
+sudo apt-add-repository -y ppa:fish-shell/release-2
+sudo apt-add-repository -y ppa:webupd8team/sublime-text-3
 
 #
 # Install Packages
 #
 
-pkginst() {
-    sudo apt-get install -qy ${@}
-}
-
 sudo apt-get update
 sudo apt-get dist-upgrade -y
-
-pkginst aptitude
-pkginst bpython
-pkginst build-essential
-pkginst cmake
-pkginst encfs
-pkginst fish
-pkginst git
-pkginst mercurial
-pkginst nodejs
-pkginst python
-pkginst python-dev
-pkginst silversearcher-ag
-pkginst sublime-text-installer
-pkginst subversion
-pkginst terminator
-pkginst tig
+sudo apt-get install -y \
+    aptitude \
+    bpython \
+    build-essential \
+    cmake \
+    encfs \
+    fish \
+    git \
+    mercurial \
+    nautilus-dropbox \
+    nodejs \
+    python \
+    python-dev \
+    redshift-gtk \
+    silversearcher-ag \
+    sublime-text-installer \
+    subversion \
+    tig
 
 #
 # Change default shell
