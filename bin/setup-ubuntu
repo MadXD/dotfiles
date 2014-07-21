@@ -11,8 +11,8 @@ RELEASE="$(lsb_release -cs)"
 
 echo "
 deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE} main restricted universe multiverse
-deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-backports main restricted universe multiverse
-deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-proposed main restricted universe multiverse
+# deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-backports main restricted universe multiverse
+# deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-proposed main restricted universe multiverse
 deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-security main restricted universe multiverse
 deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-updates main restricted universe multiverse
 
@@ -27,13 +27,14 @@ Pin-Priority: 9990
 " | sudo tee /etc/apt/preferences
 
 if [ "${RELEASE}" = "precise" ]; then
+    sudo apt-add-repository -y ppa:cassou/emacs
     sudo apt-add-repository -y ppa:git-core/ppa
     sudo apt-add-repository -y ppa:lvillani/silversearcher
 fi
 
 sudo apt-add-repository -y ppa:chris-lea/node.js
 sudo apt-add-repository -y ppa:fish-shell/release-2
-sudo apt-add-repository -y ppa:webupd8team/sublime-text-3
+sudo apt-add-repository -y ppa:lvillani/i3
 
 #
 # Install Packages
@@ -46,9 +47,11 @@ sudo apt-get install -y \
     bpython \
     build-essential \
     cmake \
+    emacs24 \
     encfs \
     fish \
     git \
+    i3 \
     mercurial \
     nautilus-dropbox \
     nodejs \
@@ -56,8 +59,8 @@ sudo apt-get install -y \
     python-dev \
     redshift-gtk \
     silversearcher-ag \
-    sublime-text-installer \
     subversion \
+    suckless-tools \
     tig
 
 #
