@@ -8,6 +8,7 @@ bind generic <Up> move-up
 bind generic G !git gc --aggressive --prune=all
 bind generic U !git cleanup
 bind main R !git rebase -i %(commit)
+bind status A !git aac
 bind status c !git commit
 bind status C !git commit --amend
 bind status p !git push
