@@ -28,6 +28,6 @@ function fish_prompt
 
    # Line 2
    echo
-   printf '↪  '
+   printf '↪ '
    set_color normal
 end
