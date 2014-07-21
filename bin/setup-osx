@@ -75,6 +75,9 @@ sudo defaults write /Library/Preferences/com.apple.TimeMachine.plist SkipSystemF
 sudo defaults write /Library/Preferences/com.apple.TimeMachine.plist SkipPaths "(
     '/Applications',
     '/System',
+    '~${USER}/.android',
+    '~${USER}/.gem',
+    '~${USER}/.m2',
     '~${USER}/.vagrant.d',
     '~${USER}/Documents/Virtual Machines.localized',
     '~${USER}/Downloads',
