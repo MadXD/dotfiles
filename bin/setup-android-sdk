@@ -5,10 +5,14 @@ import subprocess
 
 COMPONENTS = [
     # Base SDK tools
-    'build-tools-19.1',
+    'build-tools-19.1.0',
     'build-tools-20.0.0',
     'platform-tools',
     'tools',
+
+    # Android L
+    'android-L',
+    'doc-L',
 
     # Platform SDK
     'android-16',
