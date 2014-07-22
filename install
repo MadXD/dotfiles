@@ -1,4 +1,6 @@
 #!/usr/bin/env python2.7
+# -*- mode: python -*-
+# -*- coding: utf-8 -*-
 
 import json
 import os
@@ -7,14 +9,27 @@ import sys
 
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+MANIFEST = {
+    "any": [
+        { "source": "bin",    "dest": "~/.local/bin" },
+        { "source": "fish",   "dest": "~/.config/fish" },
+        { "source": "gradle", "dest": "~/.gradle" },
+        { "source": "misc",   "dest": "~/" },
+    ],
+    "darwin": [],
+    "linux2": [
+        { "source": "autostart",  "dest": "~/.config/autostart" },
+        { "source": "fontconfig", "dest": "~/.config/fontconfig" },
+        { "source": "gtk-3.0",    "dest": "~/.config/gtk-3.0" },
+        { "source": "redshift",   "dest": "~/.config" },
+        { "source": "terminator", "dest": "~/.config/terminator" },
+    ],
+}
 
 
 def main():
-    with open(os.path.join(HERE, 'install.json'), 'r') as f:
-        manifest = json.load(f)
-
-    process_entries(manifest['any'])
-    process_entries(manifest[sys.platform])
+    process_entries(MANIFEST['any'])
+    process_entries(MANIFEST[sys.platform])
 
 
 def process_entries(entries):
