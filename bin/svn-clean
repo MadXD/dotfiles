@@ -28,9 +28,9 @@ my $use_svn_module = eval { require SVN::Client };
 
 my $CWD = getcwd;
 
-my @exclude      = ();
+my @exclude      = ('.vagrant');
 my $force        = 0;
-my $quiet        = 0;
+my $quiet        = 1;
 my $print        = 0;
 my $help         = 0;
 my $man          = 0;
