@@ -15,6 +15,7 @@ COMPONENTS = [
     'doc-L',
 
     # Platform SDK
+    'android-15',
     'android-16',
     'android-19',
 
