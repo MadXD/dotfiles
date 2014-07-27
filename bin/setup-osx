@@ -26,7 +26,6 @@ brew upgrade
 
 brew install android-ndk
 brew install android-sdk
-brew install ant
 brew install encfs
 brew install fish
 brew install git-extras
@@ -37,6 +36,7 @@ brew install node
 brew install packer
 brew install python
 brew install ssh-copy-id
+brew install sshfs
 brew install the_silver_searcher
 
 #
@@ -48,7 +48,6 @@ brew cask install appcleaner
 brew cask install ax88772  # ASIX AX88772 (used in Hamlet USB-Ethernet dongle)
 brew cask install colors
 brew cask install flash
-brew cask install fluid
 brew cask install flux
 brew cask install google-chrome
 brew cask install handbrake
@@ -60,6 +59,7 @@ brew cask install spotify
 brew cask install steam
 brew cask install toggldesktop
 brew cask install vagrant
+brew cask install virtualbox
 brew cask install vmware-fusion
 brew cask install wireshark-dev  # Qt version which doesn't require X11
 
@@ -78,6 +78,7 @@ sudo defaults write /Library/Preferences/com.apple.TimeMachine.plist SkipPaths "
     '~${USER}/.android',
     '~${USER}/.gem',
     '~${USER}/.m2',
+    '~${USER}/.npm',
     '~${USER}/.vagrant.d',
     '~${USER}/Documents/Virtual Machines.localized',
     '~${USER}/Downloads',
