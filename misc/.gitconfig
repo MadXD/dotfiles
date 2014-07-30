@@ -3,10 +3,10 @@
 	addw = !sh -c 'git diff -w --no-color "$@" | git apply --cached --ignore-whitespace' -
 	br = branch
 	bra = branch -a
-	cl = clean -dfx
-	cleanup = !git reset HEAD --hard && git clean -dfxq -e .idea
-        hk = !git reset HEAD --hard && git clean -dfqx && git gc --aggressive --prune=all
+	cl = clean -dfq
+	cleanup = !git reset HEAD --hard && git clean -dfq
 	co = checkout
+	hk = !git reset HEAD --hard && git clean -dfx && git gc --aggressive --prune=all
 	lg = log --decorate --oneline
 	purr = pull --rebase
 	st = status -sb
