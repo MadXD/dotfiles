@@ -10,9 +10,9 @@ RELEASE="$(lsb_release -cs)"
 #
 
 echo "
-deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE} main restricted universe multiverse
 # deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-backports main restricted universe multiverse
 # deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-proposed main restricted universe multiverse
+deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE} main restricted universe multiverse
 deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-security main restricted universe multiverse
 deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-updates main restricted universe multiverse
 
@@ -28,12 +28,12 @@ Pin-Priority: 9990
 
 if [ "${RELEASE}" = "precise" ]; then
     sudo apt-add-repository -y ppa:cassou/emacs
-    sudo apt-add-repository -y ppa:git-core/ppa
     sudo apt-add-repository -y ppa:lvillani/silversearcher
 fi
 
 sudo apt-add-repository -y ppa:chris-lea/node.js
 sudo apt-add-repository -y ppa:fish-shell/release-2
+sudo apt-add-repository -y ppa:git-core/ppa
 sudo apt-add-repository -y ppa:lvillani/i3
 
 #
