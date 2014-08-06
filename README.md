@@ -23,6 +23,10 @@ OS X:
 
     curl https://raw.githubusercontent.com/lvillani/dotfiles/master/webinstall | bash
 
+Windows
+
+    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString("https://raw.githubusercontent.com/lvillani/dotfiles/master/webinstall.ps1"))
+
 Generic:
 
     git clone git://github.com/lvillani/dotfiles.git
