@@ -1,4 +1,6 @@
 #!/usr/bin/env python2
+# -*- mode: python -*-
+# -*- coding: utf-8 -*-
 
 import subprocess
 
@@ -20,11 +22,12 @@ COMPONENTS = [
     'android-19',
 
     # System Images
+    'sys-img-x86-android-15',
     'sys-img-x86-android-16',
     'sys-img-x86-android-19',
 
     # Support
-    'extra-android-m2repository'
+    'extra-android-m2repository',
     'extra-android-support',
 
     # Google Stuff
@@ -38,4 +41,4 @@ COMPONENTS = [
 ]
 
 
-subprocess.check_call(['android', 'update', 'sdk', '-s', '-u', '-t', ','.join(COMPONENTS)])
+subprocess.check_call(['android', 'update', 'sdk', '--no-ui', '--filter', ','.join(COMPONENTS)])
