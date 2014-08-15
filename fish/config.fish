@@ -4,7 +4,8 @@
 
 set -e fish_greeting
 
-. ~/.config/fish/virtual.fish
+source ~/.config/fish/virtualfish/virtual.fish
+source ~/.config/fish/virtualfish/auto_activation.fish
 
 #
 # CDPATH
@@ -12,7 +13,7 @@ set -e fish_greeting
 
 set -x CDPATH ./
 
-for cdentry in ~/Development/ ~/Development/develer/ ~/Dropbox ~/Dropbox/Config/ /usr/local/Library/Taps
+for cdentry in ~/Development/ ~/Development/develer/ ~/Dropbox
     if test -d $cdentry
         set -x CDPATH $CDPATH $cdentry
     end
@@ -22,11 +23,10 @@ end
 # Environment
 #
 
-set -x DEBEMAIL    'lorenzo@villani.me'
-set -x DEBFULLNAME 'Lorenzo Villani'
-set -x EDITOR      'subl -n -w'
+set -x DEBEMAIL    lorenzo@villani.me
+set -x DEBFULLNAME "Lorenzo Villani"
+set -x EDITOR emacsclient -c -a ""
 set -x GEM_HOME    ~/.gem
-set -x GIT_EDITOR  nano
 set -x GOPATH      ~/.go
 set -x NPM_HOME    ~/.npm
 set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
@@ -49,3 +49,7 @@ alias e="$EDITOR"
 alias mai="make ; and make install"
 alias r=". ~/.config/fish/config.fish"
 alias search="find . -type f -iname"
+
+if test -x /usr/local/bin/hub
+    alias git="hub"
+end
