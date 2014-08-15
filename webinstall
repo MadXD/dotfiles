@@ -21,10 +21,10 @@ fi
 
 if [ ! -d "${DOTFILES_DIR}" ]; then
     if [ -f "${HOME}/.ssh/*.pub" ]; then
-        git clone ssh://git@github.com/lvillani/dotfiles.git "${DOTFILES_DIR}"
+        git clone --recursive ssh://git@github.com/lvillani/dotfiles.git "${DOTFILES_DIR}"
     else
         echo "Warning: SSH keys not found. Performing anonymous clone."
-        git clone git://github.com/lvillani/dotfiles.git "${DOTFILES_DIR}"
+        git clone --recursive git://github.com/lvillani/dotfiles.git "${DOTFILES_DIR}"
     fi
 
     pushd "${DOTFILES_DIR}"
