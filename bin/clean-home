@@ -1,0 +1,60 @@
+#!/usr/bin/env python2
+# -*- mode: python -*-
+# -*- coding: utf-8 -*-
+
+from __future__ import print_function
+
+import argparse
+import os
+import os.path
+
+
+def main():
+    args = parse_args()
+
+    for dirpath, dirnames, filenames in os.walk(os.path.expanduser("~")):
+        for dir_name in dirnames:
+            chmod(os.path.join(dirpath, dir_name), 0700, verbose=args.verbose)
+
+        for file_name in filenames:
+            file_path = os.path.join(dirpath, file_name)
+
+            if file_name == ".DS_Store":
+                remove(file_path, verbose=args.verbose)
+            elif os.path.islink(file_path) and not os.path.exists(os.readlink(file_path)):
+                remove(file_path, verbose=args.verbose)
+            elif os.access(file_path, os.X_OK):
+                chmod(file_path, 0700, verbose=args.verbose)
+            else:
+                chmod(file_path, 0600, verbose=args.verbose)
+
+
+def parse_args():
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument('-v', '--verbose', action='store_true', required=False)
+
+    return arg_parser.parse_args()
+
+
+def chmod(path, mode, verbose=False):
+    try:
+        if verbose:
+            print('Chmod %s %s' % (path, mode))
+
+        os.chmod(path, mode)
+    except OSError:
+        print('Failed to chmod %s' % path)
+
+
+def remove(path, verbose=False):
+    try:
+        if verbose:
+            print('Remove %s' % path)
+
+        os.remove(path)
+    except OSError:
+        print('Warning: Failed to remove %s' % path)
+
+
+if __name__ == '__main__':
+    main()

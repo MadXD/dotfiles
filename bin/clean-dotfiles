@@ -1,0 +1,55 @@
+#!/usr/bin/env python2
+# -*- mode: python -*-
+# -*- coding: utf-8 -*-
+
+from argparse import ArgumentParser
+from os import environ, listdir, remove
+from os.path import expanduser, join, isdir
+from shutil import rmtree
+
+WHITE_LIST = [
+    ".Private",
+    ".Skype",
+    ".aspell.en.pws",
+    ".dropbox",
+    ".ecryptfs",
+    ".gnupg",
+    ".mozilla",
+    ".recentf",
+    ".smex-items",
+    ".ssh",
+    ".thunderbird",
+    ".vagrant",
+    ".vagrant.d",
+]
+
+def main():
+    args = parse_args()
+    home = expanduser("~")
+
+    for f in listdir(home):
+        if f.startswith(".") and not f in WHITE_LIST:
+            p = join(home, f)
+
+            if args.dry_run:
+                print(p)
+            else:
+                rm(join(home, f))
+
+
+def parse_args():
+    arg_parser = ArgumentParser()
+    arg_parser.add_argument('-n', '--dry-run', action='store_true', required=False)
+
+    return arg_parser.parse_args()
+
+
+def rm(path):
+    if isdir(path):
+        rmtree(path, ignore_errors=True)
+    else:
+        remove(path)
+
+
+if __name__ == "__main__":
+    main()
