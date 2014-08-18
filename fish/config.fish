@@ -25,8 +25,9 @@ end
 
 set -x DEBEMAIL    lorenzo@villani.me
 set -x DEBFULLNAME "Lorenzo Villani"
-set -x EDITOR emacsclient -c -a ""
+set -x EDITOR "emacsclient -c -a ''"
 set -x GEM_HOME    ~/.gem
+set -x GIT_EDITOR "emacsclient -nw -a ''"
 set -x GOPATH      ~/.go
 set -x NPM_HOME    ~/.npm
 set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
