@@ -13,7 +13,7 @@ source ~/.config/fish/virtualfish/auto_activation.fish
 
 set -x CDPATH ./
 
-for cdentry in ~/Development/ ~/Development/develer/ ~/Dropbox
+for cdentry in ~/Development/ ~/Development/develer/
     if test -d $cdentry
         set -x CDPATH $CDPATH $cdentry
     end
