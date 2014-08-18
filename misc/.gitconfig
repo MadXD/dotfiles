@@ -1,14 +1,14 @@
 [alias]
-	aac = !git commit -a --amend --no-edit && git push --force
 	addw = !sh -c 'git diff -w --no-color "$@" | git apply --cached --ignore-whitespace' -
 	br = branch
 	bra = branch -a
+	cap = !git commit -a --amend --no-edit && git push --force
 	cl = clean -dfq
-	cleanup = !git reset HEAD --hard && git clean -dfq
 	co = checkout
-	hk = !git reset HEAD --hard && git clean -dfx && git gc --aggressive --prune=all
 	lg = log --decorate --oneline
 	purr = pull --rebase
+	rc = !git reset HEAD --hard && git clean -dfq
+	rcg = !git reset HEAD --hard && git clean -dfx && git gc --aggressive --prune=all
 	st = status -sb
 	sti = status -sb --ignored
 	tv = !git tag -f -a \"v$@\" -m \"v$@\"
