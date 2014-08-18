@@ -34,6 +34,8 @@ set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
 set -x VAGRANT_VMWARE_CLONE_DIRECTORY ~/.vagrant.d/vmware
 set -x VAGRANT_VMWARE_FUSION_APP ~/Applications/VMware\ Fusion.app
 
+set -x npm_config_prefix $NPM_HOME
+
 # Override PATH only if we are not inside a Python Virtualenv, in which case we want to pick the
 # python executable from its path.
 if test -z "$VIRTUAL_ENV" -a -z "$COMELZ_QT_SDK_SETUP_DONE"
