@@ -2,6 +2,7 @@
 	addw = !sh -c 'git diff -w --no-color "$@" | git apply --cached --ignore-whitespace' -
 	br = branch
 	bra = branch -a
+	ca = !git commit -a --amend --no-edit
 	cap = !git commit -a --amend --no-edit && git push --force
 	cl = clean -dfq
 	co = checkout
