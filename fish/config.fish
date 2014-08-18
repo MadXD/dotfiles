@@ -47,7 +47,7 @@ end
 
 alias e="$EDITOR"
 alias mai="make ; and make install"
-alias r=". ~/.config/fish/config.fish"
+alias r="source ~/.config/fish/config.fish"
 alias search="find . -type f -iname"
 
 if test -x /usr/local/bin/hub
