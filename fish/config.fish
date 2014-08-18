@@ -45,8 +45,6 @@ end
 # Aliases
 #
 
-alias blog="$EDITOR ~/Dropbox/lvillani.github.io/"
-alias dotfiles="$EDITOR ~/Dropbox/Config/dotfiles"
 alias e="$EDITOR"
 alias mai="make ; and make install"
 alias r=". ~/.config/fish/config.fish"
