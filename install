@@ -2,7 +2,6 @@
 # -*- mode: python -*-
 # -*- coding: utf-8 -*-
 
-import json
 import os
 import os.path
 import sys
@@ -11,10 +10,11 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 MANIFEST = {
     "any": [
-        { "source": "bin",    "dest": "~/.local/bin" },
-        { "source": "fish",   "dest": "~/.config/fish" },
-        { "source": "gradle", "dest": "~/.gradle" },
-        { "source": "misc",   "dest": "~/" },
+        { "source": "bin",     "dest": "~/.local/bin" },
+        { "source": "emacs.d", "dest": "~/.emacs.d" },
+        { "source": "fish",    "dest": "~/.config/fish" },
+        { "source": "gradle",  "dest": "~/.gradle" },
+        { "source": "misc",    "dest": "~/" },
     ],
     "darwin": [],
     "linux2": [
