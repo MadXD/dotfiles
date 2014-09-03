@@ -4,7 +4,7 @@
 	bra = branch -a
 	c = commit -a
 	ca = commit -a --amend --no-edit
-	cap = commit -a --amend --no-edit && git push --force
+	cap = !git commit -a --amend --no-edit && git push --force
 	cl = clean -df
 	co = checkout
 	lg = log --decorate --oneline
