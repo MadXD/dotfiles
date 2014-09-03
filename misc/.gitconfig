@@ -1,10 +1,11 @@
 [alias]
-	addw = !sh -c 'git diff -w --no-color "$@" | git apply --cached --ignore-whitespace' -
+	aw = !sh -c 'git diff -w --no-color "$@" | git apply --cached --ignore-whitespace' -
 	br = branch
 	bra = branch -a
-	ca = !git commit -a --amend --no-edit
-	cap = !git commit -a --amend --no-edit && git push --force
-	cl = clean -dfq
+	c = commit -a
+	ca = commit -a --amend --no-edit
+	cap = commit -a --amend --no-edit && git push --force
+	cl = clean -df
 	co = checkout
 	lg = log --decorate --oneline
 	purr = pull --rebase
@@ -12,15 +13,20 @@
 	rcg = !git reset HEAD --hard && git clean -dfx && git gc --aggressive --prune=all
 	st = status -sb
 	sti = status -sb --ignored
-	tv = !git tag -f -a \"v$@\" -m \"v$@\"
 [color]
 	ui = auto
 [core]
 	whitespace = trailing-space,space-before-tab
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
 [merge]
 	tool = meld
+[mergetool]
+	prompt = false
+[push]
+	default = simple
 [user]
 	email = lorenzo@villani.me
 	name = Lorenzo Villani
-[push]
-	default = simple
