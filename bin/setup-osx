@@ -20,48 +20,55 @@ brew tap homebrew/versions
 brew update
 brew upgrade
 
+brew cask install xquartz  # Some packages below require XQuartz.
+
 #
 # Brew: Formulas
 #
 
-brew install android-ndk
 brew install android-sdk
+brew install bzr
+brew install emacs --cocoa --srgb
 brew install encfs
 brew install fish
+brew install git
 brew install git-extras
 brew install go
 brew install go-app-engine-64
-brew install gradle
+brew install gradle112
+brew install meld
+brew install mercurial
 brew install node
 brew install packer
 brew install python
+brew install ruby
 brew install ssh-copy-id
 brew install sshfs
+brew install subversion
 brew install the_silver_searcher
 
 #
 # Brew: Casks
 #
 
+# brew cask install ax88772  # ASIX AX88772 (used in Hamlet USB-Ethernet dongle)
+# brew cask install mcs783x  # ASIX MCS783x (used in StarTech USBDOCK2)
+# brew cask install pl2303   # Prolific PL2303 serial to USB converter
 brew cask install android-studio
 brew cask install appcleaner
-brew cask install ax88772  # ASIX AX88772 (used in Hamlet USB-Ethernet dongle)
+brew cask install chromium
 brew cask install colors
+brew cask install dropbox
+brew cask install firefox
 brew cask install flash
 brew cask install flux
-brew cask install google-chrome
 brew cask install handbrake
 brew cask install hipchat
-brew cask install mcs783x  # ASIX MCS783x (used in StarTech USBDOCK2)
-brew cask install pl2303   # Prolific PL2303 serial to USB converter
+brew cask install inkscape
 brew cask install skype
 brew cask install spotify
-brew cask install steam
-brew cask install toggldesktop
 brew cask install vagrant
-brew cask install virtualbox
 brew cask install vmware-fusion
-brew cask install wireshark-dev  # Qt version which doesn't require X11
 
 #
 # Time Machine
@@ -75,6 +82,7 @@ sudo defaults write /Library/Preferences/com.apple.TimeMachine.plist SkipSystemF
 sudo defaults write /Library/Preferences/com.apple.TimeMachine.plist SkipPaths "(
     '/Applications',
     '/System',
+    '/Users/Shared',
     '~${USER}/.android',
     '~${USER}/.gem',
     '~${USER}/.go',
@@ -83,7 +91,7 @@ sudo defaults write /Library/Preferences/com.apple.TimeMachine.plist SkipPaths "
     '~${USER}/.vagrant.d',
     '~${USER}/Documents/Virtual Machines.localized',
     '~${USER}/Downloads',
-    '~${USER}/Library',
+    '~${USER}/Library/Caches',
     '~${USER}/VirtualBox VMs'
 )"
 
