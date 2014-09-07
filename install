@@ -2,34 +2,49 @@
 # -*- mode: python -*-
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+
+import argparse
+import json
 import os
 import os.path
 import sys
 
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-MANIFEST = {
-    "any": [
-        { "source": "bin",     "dest": "~/.local/bin" },
-        { "source": "emacs.d", "dest": "~/.emacs.d" },
-        { "source": "fish",    "dest": "~/.config/fish" },
-        { "source": "gradle",  "dest": "~/.gradle" },
-        { "source": "misc",    "dest": "~/" },
-    ],
-    "darwin": [],
-    "linux2": [
-        { "source": "autostart",  "dest": "~/.config/autostart" },
-        { "source": "fontconfig", "dest": "~/.config/fontconfig" },
-        { "source": "gtk-3.0",    "dest": "~/.config/gtk-3.0" },
-        { "source": "redshift",   "dest": "~/.config" },
-        { "source": "terminator", "dest": "~/.config/terminator" },
-    ],
-}
 
 
 def main():
-    process_entries(MANIFEST['any'])
-    process_entries(MANIFEST[sys.platform])
+    args = parse_args()
+
+    # Determine the OS family
+    if sys.platform == 'linux2' or sys.platform == 'darwin':
+        os_family = 'unix'
+    elif sys.platform == 'win32':
+        os_family = 'win32'
+    else:
+        die('Unsupported operating system.')
+
+    # Load JSON feed
+    with open('install.json', 'r') as f:
+        MANIFEST = json.load(f)
+
+    # Install files from most general to more specific platforms.
+    for section in ['any', os_family, sys.platform]:
+        if section in MANIFEST:
+            process_entries(MANIFEST[section])
+
+
+def parse_args():
+    args = argparse.ArgumentParser()
+    args.add_argument('-d', '--dry-run', action='store_true')
+
+    return args.parse_args()
+
+
+def die(message):
+    print(message)
+    sys.exit(1)
 
 
 def process_entries(entries):
@@ -37,13 +52,19 @@ def process_entries(entries):
         install(entry['source'], entry['dest'])
 
 
-def install(top, dest):
-    def visit(_, directory, entries):
-        for entry in [os.path.join(directory, f) for f in entries]:
-            if not os.path.isdir(entry):
-                symlink(os.path.join(HERE, entry), os.path.join(os.path.expanduser(dest), os.path.relpath(entry, start=top)))
+def install(source, dest):
+    source_path = os.path.abspath(os.path.join(os.getcwd(), source))
+    dest_path = os.path.abspath(os.path.expanduser(dest))
 
-    os.path.walk(top, visit, None)
+    if os.path.isfile(source_path):
+        symlink(source_path, dest_path)
+    elif os.path.isdir(source_path):
+        for dirpath, _, filenames in os.walk(source_path):
+            for f in filenames:
+                s = os.path.join(dirpath, f)
+                d = os.path.join(dest_path, os.path.relpath(s, start=source))
+
+                symlink(s, d)
 
 
 def symlink(source, dest):
@@ -54,8 +75,6 @@ def symlink(source, dest):
         os.unlink(dest)
 
     os.symlink(source, dest)
-
-    # print source, '->', dest
 
 
 if __name__ == '__main__':

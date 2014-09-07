@@ -1,0 +1,21 @@
+{
+    "any": [
+        { "source": "emacs.d", "dest": "~/.emacs.d" },
+        { "source": "gradle",  "dest": "~/.gradle" }
+    ],
+    "unix": [
+        { "source": "bin",  "dest": "~/.local/bin" },
+        { "source": "fish", "dest": "~/.config/fish" },
+        { "source": "misc", "dest": "~/" }
+    ],
+    "linux2": [
+        { "source": "autostart",  "dest": "~/.config/autostart" },
+        { "source": "fontconfig", "dest": "~/.config/fontconfig" },
+        { "source": "gtk-3.0",    "dest": "~/.config/gtk-3.0" },
+        { "source": "redshift",   "dest": "~/.config" },
+        { "source": "terminator", "dest": "~/.config/terminator" }
+    ],
+    "win32": [
+        { "source": "WindowsPowerShell",  "dest": "~/Documents/WindowsPowerShell" }
+    ]
+}
