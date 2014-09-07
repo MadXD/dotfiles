@@ -1,5 +1,4 @@
-Dotfiles
-========
+# Dotfiles
 
 My dotfiles. The less stuff is here, the better. My philosophy is to stick to defaults as much as
 possible, don't make a change unless it is necessary.
@@ -8,12 +7,10 @@ Supported platforms:
 
 - OS X 10.9
 - Ubuntu 14.04
+- Windows 7
 
 
-
-
-Installation
-------------
+## Installation
 
 Linux:
 
