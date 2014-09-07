@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+set -u
+
+revision="${1}"
+shift 1
+
+svn merge -c -${revision} ${@}
