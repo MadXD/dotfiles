@@ -371,5 +371,14 @@
     (if (eq major-mode 'emacs-lisp-mode)
             (save-excursion (byte-compile-file buffer-file-name))))
 
+;;
+;; Misc
+;;
+
+(setq yaml-indent-offset 4)
+(setq ruby-indent-level 4)
+(setq web-mode-indent-style 4)
+(setq-default web-mode-indent-style 4)
+
 (provide 'sublimacs)
 ;;; sublimacs.el ends here.
