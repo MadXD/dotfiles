@@ -47,6 +47,7 @@ end
 #
 
 alias e="$EDITOR"
+alias ee="$EDITOR -n"
 alias g="git"
 alias m="make; and make install"
 alias r="source ~/.config/fish/config.fish"
