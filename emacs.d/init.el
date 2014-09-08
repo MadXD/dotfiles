@@ -26,6 +26,8 @@
 ;; UI
 ;;
 
+(add-to-list 'default-frame-alist '(height . 50))
+(add-to-list 'default-frame-alist '(width . 160))
 (fset 'yes-or-no-p 'y-or-n-p)
 (load-theme 'monokai t)
 (menu-bar-mode -1)
