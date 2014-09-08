@@ -79,6 +79,7 @@
 (setq require-final-newline t)
 (setq ring-bell-function 'ignore)
 (setq tab-width 4)
+(setq truncate-lines t)
 (setq truncate-partial-width-windows nil)
 (setq uniquify-buffer-name-style 'post-forward)
 (setq visible-bell t)
@@ -140,6 +141,7 @@
                powershell-mode
                projectile
                rich-minority
+               smart-mode-line
                smartparens
                smex
                web-mode
@@ -151,16 +153,13 @@
 ;; Minor Modes
 ;;
 
-(ac-config-default)
-(ac-set-trigger-key "TAB")
-
 (column-number-mode t)
 (cua-mode t)
 (global-auto-revert-mode t)
 (global-fixmee-mode t)
 (global-flycheck-mode t)
 (global-hl-line-mode t)
-(global-linum-mode t)
+(line-number-mode t)
 (line-number-mode t)
 (nyan-mode t)
 (projectile-global-mode t)
@@ -170,8 +169,8 @@
 (smartparens-global-mode t)
 (smex-initialize)
 (transient-mark-mode t)
+;; (global-linum-mode t)
 
-(setq ac-auto-start nil)
 (setq cua-prefix-override-inhibit-delay 0.01)
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
 (setq linum-format "%4d ")
@@ -181,10 +180,30 @@
 (setq show-paren-delay 0)
 
 ;;
+;; Smart ModeLine
+;;
+
+(setq sml/no-confirm-load-theme t)
+
+(sml/setup)
+(sml/apply-theme 'respectful)
+
+;;
+;; Auto Complete
+;;
+
+(ac-config-default)
+(ac-set-trigger-key "TAB")
+
+(setq ac-auto-start nil)
+
+;;
 ;; Spell Checker
 ;;
 
 (when (or (file-executable-p "/usr/local/bin/aspell") (file-executable-p "/usr/bin/aspell"))
+    (require 'ispell)
+
     (setq ispell-program-name "aspell")
     (setq ispell-extra-args '("--lang=en_US" "--run-together" "--run-together-limit=5" "--run-together-min=2" "--sug-mode=ultra"))
 
