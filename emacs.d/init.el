@@ -139,6 +139,7 @@
                fixmee
                flx-ido
                flycheck
+               fuzzy
                git-commit-mode
                go-mode
                ido-ubiquitous
@@ -179,15 +180,17 @@
 (smartparens-global-mode t)
 (smex-initialize)
 (transient-mark-mode t)
-;; (global-linum-mode t)
 
 (setq cua-prefix-override-inhibit-delay 0.01)
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
 (setq linum-format "%4d ")
 (setq nyan-bar-length 10)
+(setq projectile-enable-caching t)
+(setq projectile-file-exists-local-cache-expire (* 5 60))
 (setq recentf-max-saved-items 1000)
 (setq rm-whitelist '(""))
 (setq show-paren-delay 0)
+(setq sp-autoescape-string-quote nil)
 
 ;;
 ;; Smart ModeLine
@@ -235,32 +238,31 @@
 ;; IDO
 ;;
 
+(require 'flx-ido)
 (ido-mode t)
 (ido-everywhere t)
 (ido-vertical-mode t)
-
 (flx-ido-mode t)
 
-(set-face-foreground 'ido-first-match (face-foreground 'font-lock-variable-name-face))
-
-(setq flx-ido-use-faces nil)
-(setq ido-auto-merge-work-directories-length nil)
 (setq ido-enable-flex-matching t)
-(setq ido-use-faces t)
+(setq ido-use-faces nil)
 (setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
 
 ;;
 ;; File -> Major mode association
 ;;
 
+(add-to-list 'auto-mode-alist '(".bowerrc" . json-mode))
+(add-to-list 'auto-mode-alist '(".jsbeautifyrc" . json-mode))
+(add-to-list 'auto-mode-alist '(".jshintrc" . json-mode))
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . git-commit-mode))
 (add-to-list 'auto-mode-alist '("Vagrantfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.bat\\'" . batch-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.ps1\\'" . powershell-mode))
-(add-to-list 'auto-mode-alist '("\\.webapp\\'" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.sip\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.webapp\\'" . json-mode))
 
 ;;
 ;; Hooks
@@ -270,6 +272,7 @@
 (add-hook 'after-save-hook 'sublimacs-recompile-current-el)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'before-save-hook 'time-stamp)
+(add-hook 'markdown-mode-hook (lambda () (setq truncate-lines t)))
 
 ;;
 ;; Scheduled Tasks
@@ -294,6 +297,7 @@
               (,(kbd "C-f") . isearch-forward)
               (,(kbd "C-o") . ido-find-file)
               (,(kbd "C-q") . save-buffers-kill-terminal)
+              (,(kbd "C-r") . replace-string)
               (,(kbd "C-s") . save-buffer)
               (,(kbd "C-w") . sublimacs-kill-current-buffer)
               (,(kbd "C-x C-r") . sublimacs-open-recent-file)
@@ -415,10 +419,9 @@
 ;; Misc
 ;;
 
-(setq yaml-indent-offset 4)
 (setq ruby-indent-level 4)
 (setq web-mode-indent-style 4)
-(setq-default web-mode-indent-style 4)
+(setq yaml-indent-offset 4)
 
 (provide 'sublimacs)
 ;;; sublimacs.el ends here.
