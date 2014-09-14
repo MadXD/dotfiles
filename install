@@ -10,6 +10,9 @@ import os
 import os.path
 import sys
 
+if sys.platform == 'win32':
+    import win32file
+
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -54,7 +57,7 @@ def process_entries(entries):
 
 def install(source, dest):
     source_path = os.path.abspath(os.path.join(os.getcwd(), source))
-    dest_path = os.path.abspath(os.path.expanduser(dest))
+    dest_path = os.path.abspath(os.path.expandvars(os.path.expanduser(dest)))
 
     if os.path.isfile(source_path):
         symlink(source_path, dest_path)
@@ -74,7 +77,12 @@ def symlink(source, dest):
     if os.path.lexists(dest):
         os.unlink(dest)
 
-    os.symlink(source, dest)
+    print(source, '->', dest)
+
+    if sys.platform == 'win32':
+        win32file.CreateSymbolicLink(dest, source, 0)
+    else:
+        os.symlink(source, dest)
 
 
 if __name__ == '__main__':
