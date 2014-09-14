@@ -1,8 +1,4 @@
 {
-    "any": [
-        { "source": "emacs.d", "dest": "~/.emacs.d" },
-        { "source": "gradle",  "dest": "~/.gradle" }
-    ],
     "unix": [
         { "source": "bin",  "dest": "~/.local/bin" },
         { "source": "fish", "dest": "~/.config/fish" },
@@ -20,6 +16,7 @@
         { "source": "terminator",      "dest": "~/.config/terminator" }
     ],
     "win32": [
+        { "source": "emacs.d",            "dest": "${AppData}/.emacs.d" },
         { "source": "WindowsPowerShell",  "dest": "~/Documents/WindowsPowerShell" }
     ]
 }
