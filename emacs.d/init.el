@@ -206,6 +206,17 @@
 (ac-set-trigger-key "TAB")
 
 (setq ac-auto-start nil)
+(setq ac-delay 1)
+(setq ac-menu-height 5)
+(setq ac-use-fuzzy t)
+(setq-default ac-sources '(ac-source-filename ac-source-words-in-all-buffer))
+
+(define-globalized-minor-mode real-global-auto-complete-mode
+    auto-complete-mode (lambda ()
+                           (if (not (minibufferp (current-buffer)))
+                                   (auto-complete-mode 1))))
+
+(real-global-auto-complete-mode t)
 
 ;;
 ;; Spell Checker
