@@ -2,9 +2,11 @@
 # Environment
 #
 
-$env:GOPATH = "$env:UserProfile\Development\Go"
 $env:GIT_SSH = "$env:SystemDrive\Program Files (x86)\PuTTY\plink.exe"
-$env:SVN_SSH = "$env:ProgramFiles(x86)\PuTTY\plink.exe"
+$env:GOPATH = "$env:UserProfile\Development\Go"
+$env:PATH = "$env:SystemRoot\System32\WindowsPowerShell\v1.0;$env:SystemRoot\system32;$env:SystemRoot;$env:SystemRoot\System32\Wbem"
+$env:SVN_SSH = "$env:SystemDrive\\Program Files (x86)\\PuTTY\\plink.exe"
+
 $env:PATH = "$env:SystemDrive\just-install;$env:PATH"
 
 #
@@ -15,7 +17,7 @@ function env() {
 	Get-ChildItem Env:
 }
 
-function r() {
+function reload() {
 	. $PROFILE
 }
 
