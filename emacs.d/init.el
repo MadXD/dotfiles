@@ -38,11 +38,9 @@
  ((string-equal system-type "darwin")
   (set-frame-font "Menlo-12"))
  ((string-equal system-type "gnu/linux")
-  (if (find-font (font-spec :name "Ubuntu Mono"))
-          (set-frame-font "Ubuntu Mono-12")
-      (set-frame-font "Monospace-12")))
+  (set-frame-font "Monospace-12"))
  ((string-equal system-type "windows-nt")
-  (set-frame-font "Inconsolata-12")))
+  (set-frame-font "Consolas-10.5")))
 
 ;;
 ;; Global
