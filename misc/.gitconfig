@@ -7,7 +7,8 @@
 	cap = !git commit -a --amend --no-edit && git push --force
 	cl = clean -df
 	co = checkout
-	lg = log --decorate --oneline
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	purr = pull --rebase
 	rc = !git reset HEAD --hard && git clean -dfq
 	rcg = !git reset HEAD --hard && git clean -dfx && git gc --aggressive --prune=all
