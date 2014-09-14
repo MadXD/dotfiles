@@ -8,12 +8,16 @@
         { "source": "fish", "dest": "~/.config/fish" },
         { "source": "misc", "dest": "~/" }
     ],
+    "darwin": [
+        { "source": "sublime-text-3", "dest": "~/Library/Application Support/Sublime Text 3" }
+    ],
     "linux2": [
-        { "source": "autostart",  "dest": "~/.config/autostart" },
-        { "source": "fontconfig", "dest": "~/.config/fontconfig" },
-        { "source": "gtk-3.0",    "dest": "~/.config/gtk-3.0" },
-        { "source": "redshift",   "dest": "~/.config" },
-        { "source": "terminator", "dest": "~/.config/terminator" }
+        { "source": "autostart",       "dest": "~/.config/autostart" },
+        { "source": "fontconfig",      "dest": "~/.config/fontconfig" },
+        { "source": "gtk-3.0",         "dest": "~/.config/gtk-3.0" },
+        { "source": "redshift",        "dest": "~/.config" },
+        { "source": "sublime-text-3",  "dest": "~/.config/sublime-text-3" },
+        { "source": "terminator",      "dest": "~/.config/terminator" }
     ],
     "win32": [
         { "source": "WindowsPowerShell",  "dest": "~/Documents/WindowsPowerShell" }
