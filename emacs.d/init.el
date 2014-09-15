@@ -139,6 +139,7 @@
                flycheck
                fuzzy
                git-commit-mode
+               go-autocomplete
                go-mode
                ido-ubiquitous
                ido-vertical-mode
