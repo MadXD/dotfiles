@@ -33,7 +33,7 @@ brew install encfs
 brew install fish
 brew install git
 brew install git-extras
-brew install go
+brew install go --cross-compile-common
 brew install go-app-engine-64
 brew install gradle112
 brew install meld
