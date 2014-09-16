@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+set -u
+set -x
+
+go get -u code.google.com/p/go.tools/cmd/goimports
+go get -u github.com/mitchellh/gox
+go get -u github.com/nsf/gocode
