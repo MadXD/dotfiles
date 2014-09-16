@@ -17,6 +17,15 @@
 ;;; along with this program; if not, write to the Free Software
 ;;; Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 ;;;
+;;; Commentary:
+;;;
+;;; This file is organized in major sections:
+;;;
+;;; - Standard Emacs stuff that we want to customize as soon as possible.
+;;; - Install 3rd party packages through ELPA.
+;;; - Configure those packages.
+;;; - Global keymap.
+;;;
 ;;; Code:
 
 (unless (and (>= 24 emacs-major-version) (>= 3 emacs-minor-version))
@@ -151,6 +160,7 @@
                powershell-mode
                projectile
                rich-minority
+               rust-mode
                smart-mode-line
                smartparens
                smex
@@ -308,7 +318,6 @@
               (,(kbd "M-<up>") . windmove-up)
 
               ;; Editing
-              (,(kbd "<backspace>") . delete-backward-char)
               (,(kbd "<end>") . end-of-line)
               (,(kbd "<home>") . beginning-of-line)
               (,(kbd "<kp-delete>") . delete-forward-char)
@@ -325,7 +334,9 @@
               (,(kbd "C-a") . mark-whole-buffer)
               (,(kbd "C-d") . mc/mark-next-like-this)
               (,(kbd "C-l") . sublimacs-select-line)
+              (,(kbd "M-S-<down>") . set-rectangular-region-anchor)
               (,(kbd "RET") . sublimacs-enter)
+              (,(kbd "<backspace>") . delete-backward-char)
 
               ;; Project
               (,(kbd "<f7>") . projectile-compile-project)
