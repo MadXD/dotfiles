@@ -30,6 +30,7 @@
 	"ignored_packages":
 	[
 		"Markdown",
+		"Makefile",
 		"Vintage",
 		"Better CoffeeScript"
 	],
