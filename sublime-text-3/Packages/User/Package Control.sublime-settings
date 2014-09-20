@@ -3,17 +3,22 @@
 	[
 		"All Autocomplete",
 		"CMake",
+		"Emacs-like Modelines",
 		"Emmet",
 		"fish-shell",
 		"GitGutter",
 		"GoSublime",
+		"Handlebars",
 		"Indent XML",
 		"Jade",
 		"Jinja2",
+		"Makefile Improved",
 		"MarkdownEditing",
 		"PowerShell",
 		"Sass",
 		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-jshint",
 		"Wrap Plus"
 	]
 }
