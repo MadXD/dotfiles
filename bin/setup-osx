@@ -1,6 +1,8 @@
 #!/bin/bash
 
 set -e
+set -u
+set -x
 
 #
 # Install Homebrew - http://brew.sh
@@ -10,14 +12,14 @@ test -x "/usr/local/bin/brew" || {
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 }
 
-brew install caskroom/cask/brew-cask
+brew install caskroom/cask/brew-cask || true
 
 brew tap caskroom/cask
 brew tap caskroom/versions
 brew tap homebrew/binary
 brew tap homebrew/versions
 
-brew update
+# brew update
 brew upgrade
 
 brew cask install xquartz  # Some packages below require XQuartz.
@@ -27,8 +29,6 @@ brew cask install xquartz  # Some packages below require XQuartz.
 #
 
 brew install android-sdk
-brew install bzr
-brew install emacs --cocoa --srgb
 brew install encfs
 brew install fish
 brew install git
@@ -36,11 +36,13 @@ brew install git-extras
 brew install go --cross-compile-common
 brew install go-app-engine-64
 brew install gradle112
+brew install graphicsmagick
 brew install meld
 brew install mercurial
 brew install node
 brew install packer
 brew install python
+brew install ruby
 brew install ruby
 brew install ssh-copy-id
 brew install sshfs
@@ -51,24 +53,68 @@ brew install the_silver_searcher
 # Brew: Casks
 #
 
-# brew cask install ax88772  # ASIX AX88772 (used in Hamlet USB-Ethernet dongle)
-# brew cask install mcs783x  # ASIX MCS783x (used in StarTech USBDOCK2)
-# brew cask install pl2303   # Prolific PL2303 serial to USB converter
 brew cask install android-studio
 brew cask install appcleaner
+# brew cask install ax88772  # ASIX AX88772 (used in Hamlet USB-Ethernet dongle)
+brew cask install caffeine
+brew cask install ccleaner
 brew cask install chromium
 brew cask install colors
 brew cask install dropbox
 brew cask install firefox
 brew cask install flash
 brew cask install flux
+brew cask install gimp
 brew cask install handbrake
 brew cask install hipchat
 brew cask install inkscape
+brew cask install java
+brew cask install mcs783x  # ASIX MCS783x (used in StarTech USBDOCK2)
+brew cask install phpstorm
 brew cask install skype
 brew cask install spotify
+brew cask install teamviewer
+brew cask install time-out
+brew cask install transmission
+brew cask install usb-overdrive
 brew cask install vagrant
 brew cask install vmware-fusion
+
+#
+# Spotlight
+#
+
+# Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before.
+# Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
+sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+
+# Change indexing order and disable some file types
+defaults write com.apple.spotlight orderedItems -array \
+    '{"enabled" = 1;"name" = "APPLICATIONS";}' \
+    '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
+    '{"enabled" = 1;"name" = "DIRECTORIES";}' \
+    '{"enabled" = 1;"name" = "PDF";}' \
+    '{"enabled" = 1;"name" = "CONTACT";}' \
+    '{"enabled" = 1;"name" = "EVENT_TODO";}' \
+    '{"enabled" = 0;"name" = "FONTS";}' \
+    '{"enabled" = 0;"name" = "DOCUMENTS";}' \
+    '{"enabled" = 0;"name" = "MESSAGES";}' \
+    '{"enabled" = 0;"name" = "IMAGES";}' \
+    '{"enabled" = 0;"name" = "BOOKMARKS";}' \
+    '{"enabled" = 0;"name" = "MUSIC";}' \
+    '{"enabled" = 0;"name" = "MOVIES";}' \
+    '{"enabled" = 0;"name" = "PRESENTATIONS";}' \
+    '{"enabled" = 0;"name" = "SPREADSHEETS";}' \
+    '{"enabled" = 0;"name" = "SOURCE";}'
+
+# Load new settings before rebuilding the index
+sudo killall mds || true
+
+# Make sure indexing is enabled for the main volume
+sudo mdutil -i on / || true
+
+# Rebuild the index from scratch
+sudo mdutil -E / || true
 
 #
 # Time Machine
