@@ -38,6 +38,8 @@ set -x npm_config_prefix $NPM_HOME
 
 if test -n "$VIRTUAL_ENV"
     set -x PATH $VIRTUAL_ENV/bin /usr/local/bin $PATH
+else if test -n "$WINDIR"
+    set -x PATH ~/.local/bin /usr/bin /bin /cygdrive/C/just-install
 else
     set -x PATH $GEM_HOME/bin $GOPATH/bin $NPM_HOME/bin ~/.local/bin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin
 end
