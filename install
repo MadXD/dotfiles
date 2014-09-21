@@ -8,46 +8,22 @@ import argparse
 import json
 import os
 import os.path
+import subprocess
 import sys
-
-if sys.platform == 'win32':
-    import win32file
 
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 def main():
-    args = parse_args()
-
-    # Determine the OS family
-    if sys.platform == 'linux2' or sys.platform == 'darwin':
-        os_family = 'unix'
-    elif sys.platform == 'win32':
-        os_family = 'win32'
-    else:
-        die('Unsupported operating system.')
-
     # Load JSON feed
     with open('install.json', 'r') as f:
         MANIFEST = json.load(f)
 
-    # Install files from most general to more specific platforms.
-    for section in ['any', os_family, sys.platform]:
+    # Install files from most general to more specific platform.
+    for section in ['any', sys.platform]:
         if section in MANIFEST:
             process_entries(MANIFEST[section])
-
-
-def parse_args():
-    args = argparse.ArgumentParser()
-    args.add_argument('-d', '--dry-run', action='store_true')
-
-    return args.parse_args()
-
-
-def die(message):
-    print(message)
-    sys.exit(1)
 
 
 def process_entries(entries):
@@ -56,8 +32,8 @@ def process_entries(entries):
 
 
 def install(source, dest):
-    source_path = os.path.abspath(os.path.join(os.getcwd(), source))
-    dest_path = os.path.abspath(os.path.expandvars(os.path.expanduser(dest)))
+    source_path = os.path.join(os.getcwd(), source)
+    dest_path = os.path.expandvars(os.path.expanduser(dest))
 
     if os.path.isfile(source_path):
         symlink(source_path, dest_path)
@@ -77,10 +53,11 @@ def symlink(source, dest):
     if os.path.lexists(dest):
         os.unlink(dest)
 
-    print(source, '->', dest)
+    if sys.platform == 'cygwin':
+        win_dest = subprocess.check_output(['cygpath', '-a', '-w', dest])[:-1]
+        win_source = subprocess.check_output(['cygpath', '-a', '-w', source])[:-1]
 
-    if sys.platform == 'win32':
-        win32file.CreateSymbolicLink(dest, source, 0)
+        subprocess.check_output(['cmd', '/C', 'mklink', win_dest, win_source])
     else:
         os.symlink(source, dest)
 

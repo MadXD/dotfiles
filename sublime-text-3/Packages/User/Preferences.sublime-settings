@@ -20,9 +20,9 @@
 		"*.zip"
 	],
 	"bold_folder_labels": true,
-	"create_window_at_startup": false,
-	"open_files_in_new_window": false,
 	"caret_style": "phase",
+	"color_scheme": "Packages/User/Monokai (SL).tmTheme",
+	"create_window_at_startup": false,
 	"ensure_newline_at_eof_on_save": true,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
@@ -34,6 +34,7 @@
 		"Vintage",
 		"Better CoffeeScript"
 	],
+	"open_files_in_new_window": false,
 	"remember_open_files": false,
 	"rulers":
 	[

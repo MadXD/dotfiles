@@ -1,25 +1,19 @@
 {
-    "unix": [
+    "any": [
         { "source": "bin",  "dest": "~/.local/bin" },
         { "source": "fish", "dest": "~/.config/fish" },
         { "source": "misc", "dest": "~/" }
+    ],
+    "cygwin": [
+        { "source": "sublime-text-3",   "dest": "${APPDATA}/Sublime Text 3" }
     ],
     "darwin": [
         { "source": "sublime-text-3", "dest": "~/Library/Application Support/Sublime Text 3" }
     ],
     "linux2": [
-        { "source": "autostart",        "dest": "~/.config/autostart" },
-        { "source": "fontconfig",       "dest": "~/.config/fontconfig" },
-        { "source": "gtk-3.0",          "dest": "~/.config/gtk-3.0" },
         { "source": "i3/i3.conf",       "dest": "~/.i3/config" },
         { "source": "i3/i3status.conf", "dest": "~/.i3status.conf" },
         { "source": "i3/icons.ttf",     "dest": "~/.fonts/icons.ttf" },
-        { "source": "redshift",         "dest": "~/.config" },
-        { "source": "sublime-text-3",   "dest": "~/.config/sublime-text-3" },
-        { "source": "terminator",       "dest": "~/.config/terminator" }
-    ],
-    "win32": [
-        { "source": "emacs.d",            "dest": "${AppData}/.emacs.d" },
-        { "source": "WindowsPowerShell",  "dest": "~/Documents/WindowsPowerShell" }
+        { "source": "sublime-text-3",   "dest": "~/.config/sublime-text-3" }
     ]
 }
