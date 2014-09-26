@@ -14,14 +14,35 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
+MANIFEST = {
+    "any": [
+        { "source": "bin",  "dest": "~/.local/bin" },
+        { "source": "fish", "dest": "~/.config/fish" },
+        { "source": "misc", "dest": "~/" },
+    ],
+    "cygwin": [
+        { "source": "sublime-text-3",   "dest": "${APPDATA}/Sublime Text 3" },
+    ],
+    "darwin": [
+        { "source": "sublime-text-3", "dest": "~/Library/Application Support/Sublime Text 3" },
+    ],
+    "linux2": [
+        { "source": "sublime-text-3",   "dest": "~/.config/sublime-text-3" },
+    ],
+}
+
 
 def main():
-    # Load JSON feed
-    with open('install.json', 'r') as f:
-        MANIFEST = json.load(f)
+    # Determine the OS family
+    if sys.platform == 'linux2' or sys.platform == 'darwin':
+        os_family = 'unix'
+    elif sys.platform == 'win32':
+        os_family = 'win32'
+    else:
+        die('Unsupported operating system.')
 
-    # Install files from most general to more specific platform.
-    for section in ['any', sys.platform]:
+    # Install files from most general to more specific platforms.
+    for section in ['any', os_family, sys.platform]:
         if section in MANIFEST:
             process_entries(MANIFEST[section])
 
