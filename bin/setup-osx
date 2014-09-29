@@ -19,7 +19,7 @@ brew tap caskroom/versions
 brew tap homebrew/binary
 brew tap homebrew/versions
 
-# brew update
+brew update
 brew upgrade
 
 brew cask install xquartz  # Some packages below require XQuartz.
