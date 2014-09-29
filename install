@@ -33,16 +33,8 @@ MANIFEST = {
 
 
 def main():
-    # Determine the OS family
-    if sys.platform == 'linux2' or sys.platform == 'darwin':
-        os_family = 'unix'
-    elif sys.platform == 'win32':
-        os_family = 'win32'
-    else:
-        die('Unsupported operating system.')
-
     # Install files from most general to more specific platforms.
-    for section in ['any', os_family, sys.platform]:
+    for section in ['any', sys.platform]:
         if section in MANIFEST:
             process_entries(MANIFEST[section])
 
