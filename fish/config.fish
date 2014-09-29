@@ -40,7 +40,8 @@ set -x VAGRANT_VMWARE_FUSION_APP ~/Applications/VMware\ Fusion.app
 if test -n "$VIRTUAL_ENV"
     set -x PATH $VIRTUAL_ENV/bin /usr/local/bin $PATH
 else if test -n "$WINDIR"
-    set -x PATH ~/.local/bin /usr/bin /bin /cygdrive/C/just-install
+    set -x GIT_SSH "C:\Program Files (x86)\PuTTY\plink.exe"
+    set -x PATH ~/.local/bin /usr/bin /bin /cygdrive/C/just-install /cygdrive/C/Windows
 else
     set -x PATH $GEM_HOME/bin $GOPATH/bin $NPM_HOME/bin ~/.local/bin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin
 end
