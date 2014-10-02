@@ -10,6 +10,11 @@ set -e
 set -u
 set -x
 
+defaults write com.apple.ActivityMonitor IconType -int 5
+defaults write com.apple.ActivityMonitor ShowCategory -int 0
+defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
+defaults write com.apple.ActivityMonitor SortDirection -int 0
+
 defaults write com.apple.dashboard mcx-disabled -boolean true
 
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
@@ -21,20 +26,17 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightC
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock mru-spaces -bool false
+defaults write com.apple.dock persistent-apps -array
 defaults write com.apple.dock tilesize -int 48
 
 defaults write com.apple.finder FXPreferredViewStyle -string "clmv"  # Column view
-defaults write com.apple.finder ShowPathbar -bool true
-defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder NewWindowTarget -string 'PfHm'  # ⌘-N opens "Home"
 
 defaults write com.apple.frameworks.diskimages skip-verify -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
 defaults write com.apple.LaunchServices LSQuarantine -bool false
-
-defaults write com.apple.mail DisableReplyAnimations -bool true
-defaults write com.apple.mail DisableSendAnimations -bool true
 
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1  # AirDrop on every network iface.
 

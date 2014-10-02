@@ -10,21 +10,13 @@ RELEASE="$(lsb_release -cs)"
 #
 
 echo "
-# deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-backports main restricted universe multiverse
-# deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-proposed main restricted universe multiverse
-deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE} main restricted universe multiverse
-deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-security main restricted universe multiverse
-deb http://ch.archive.ubuntu.com/ubuntu/ ${RELEASE}-updates main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt ${RELEASE} main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt ${RELEASE}-security main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt ${RELEASE}-updates main restricted universe multiverse
 
 deb http://archive.canonical.com/ubuntu ${RELEASE} partner
 deb http://extras.ubuntu.com/ubuntu ${RELEASE} main
 " | sudo tee /etc/apt/sources.list
-
-echo "
-Package: *
-Pin: release a=${RELEASE}*
-Pin-Priority: 9990
-" | sudo tee /etc/apt/preferences
 
 if [ "${RELEASE}" = "precise" ]; then
     sudo apt-add-repository -y ppa:cassou/emacs
@@ -34,7 +26,9 @@ fi
 sudo apt-add-repository -y ppa:chris-lea/node.js
 sudo apt-add-repository -y ppa:fish-shell/release-2
 sudo apt-add-repository -y ppa:git-core/ppa
-sudo apt-add-repository -y ppa:lvillani/i3
+sudo apt-add-repository -y ppa:webupd8team/sublime-text-3
+
+export DEBIAN_FRONTEND=noninteractive
 
 #
 # Install Packages
@@ -51,7 +45,7 @@ sudo apt-get install -y \
     encfs \
     fish \
     git \
-    i3 \
+    gnome-shell \
     mercurial \
     nautilus-dropbox \
     nodejs \
@@ -59,6 +53,7 @@ sudo apt-get install -y \
     python-dev \
     redshift-gtk \
     silversearcher-ag \
+    sublime-text-installer \
     subversion \
     suckless-tools \
     tig

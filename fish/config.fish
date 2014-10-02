@@ -50,6 +50,8 @@ end
 # Aliases
 #
 
+alias b="$EDITOR -n ~/Development/lvillani.github.io"
+alias d="$EDITOR -n ~/Development/dotfiles"
 alias e="$EDITOR"
 alias ee="$EDITOR -n"
 alias g="git"
