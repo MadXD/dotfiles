@@ -2,6 +2,8 @@
 	"installed_packages":
 	[
 		"All Autocomplete",
+		"AngularJS",
+		"Better CoffeeScript",
 		"CMake",
 		"Emacs-like Modelines",
 		"Emmet",
@@ -14,7 +16,6 @@
 		"Jinja2",
 		"Makefile Improved",
 		"MarkdownEditing",
-		"PowerShell",
 		"Sass",
 		"SideBarEnhancements",
 		"SublimeLinter",
