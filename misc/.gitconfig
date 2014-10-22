@@ -10,7 +10,10 @@
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	purr = pull --rebase
-	rc = !git reset HEAD --hard && git clean -dfq
+	puf = push --force
+	puo = push -u origin
+	puom = push -u origin master
+	rc = !git reset HEAD --hard && git clean -df
 	rcg = !git reset HEAD --hard && git clean -dfx && git gc --aggressive --prune=all
 	st = status -sb
 	sti = status -sb --ignored
