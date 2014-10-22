@@ -4,8 +4,8 @@
 
 set -e fish_greeting
 
-source ~/.config/fish/virtualfish/virtual.fish
-source ~/.config/fish/virtualfish/auto_activation.fish
+source "$HOME/.config/fish/virtualfish/virtual.fish"
+source "$HOME/.config/fish/virtualfish/auto_activation.fish"
 
 #
 # CDPATH
@@ -13,7 +13,7 @@ source ~/.config/fish/virtualfish/auto_activation.fish
 
 set -U CDPATH . "$HOME"
 
-for cdentry in ~/Development/ ~/Development/develer/
+for cdentry in "$HOME/Development" "$HOME/Development/develer"
     if test -d $cdentry
         set -U CDPATH $CDPATH $cdentry
     end
@@ -27,23 +27,21 @@ set -e LC_CTYPE  # Work-around OS X bug
 
 set -x DEBEMAIL    "lorenzo@villani.me"
 set -x DEBFULLNAME "Lorenzo Villani"
-set -x EDITOR      subl
-set -x GEM_HOME    ~/.gem
-set -x GIT_EDITOR  nano
-set -x GOPATH      ~/.go
-set -x npm_config_prefix $NPM_HOME
-set -x NPM_HOME    ~/.npm
-set -x VAGRANT_DEFAULT_PROVIDER vmware_fusion
-set -x VAGRANT_VMWARE_CLONE_DIRECTORY ~/.vagrant.d/vmware
-set -x VAGRANT_VMWARE_FUSION_APP ~/Applications/VMware\ Fusion.app
+set -x EDITOR      "subl"
+set -x GEM_HOME    "$HOME/.gem"
+set -x GIT_EDITOR  "nano"
+set -x GOPATH      "$HOME/.go"
+set -x NPM_HOME    "$HOME/.npm"
+set -x VAGRANT_DEFAULT_PROVIDER       "vmware_fusion"
+set -x VAGRANT_VMWARE_CLONE_DIRECTORY "$HOME/.vagrant.d/vmware"
+set -x VAGRANT_VMWARE_FUSION_APP      "$HOME/Applications/VMware Fusion.app"
+
+set -x npm_config_prefix "$NPM_HOME"
 
 if test -n "$VIRTUAL_ENV"
-    set -x PATH $VIRTUAL_ENV/bin /usr/local/bin $PATH
-else if test -n "$WINDIR"
-    set -x GIT_SSH "C:\Program Files (x86)\PuTTY\plink.exe"
-    set -x PATH ~/.local/bin /usr/bin /bin /cygdrive/C/just-install /cygdrive/C/Windows
+    set -x PATH "$VIRTUAL_ENV/bin" "/usr/local/bin" "$PATH"
 else
-    set -x PATH $GEM_HOME/bin $GOPATH/bin $NPM_HOME/bin ~/.local/bin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin
+    set -x PATH "$GEM_HOME/bin" "$GOPATH/bin" "$NPM_HOME/bin" "$HOME/.local/bin" "/usr/local/bin" "/usr/local/sbin" "/usr/bin" "/usr/sbin" "/bin" "/sbin"
 end
 
 #
