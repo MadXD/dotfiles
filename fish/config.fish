@@ -49,11 +49,15 @@ end
 #
 
 alias b="$EDITOR -n ~/Development/lvillani.github.io"
+alias bci="brew cask install"
+alias bcu="brew cask uninstall --force"
+alias bi="brew install"
 alias d="$EDITOR -n ~/Development/dotfiles"
 alias e="$EDITOR"
 alias ee="$EDITOR -n"
 alias g="git"
 alias m="make; and make install"
+alias pipi="pip install --user"
 alias r="source ~/.config/fish/config.fish"
 alias s="find . -type f -iname"
 alias sd="find . -type d -iname"

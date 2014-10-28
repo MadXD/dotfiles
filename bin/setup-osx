@@ -30,12 +30,12 @@ brew install brew-rmtree
 brew install encfs
 brew install fish
 brew install git-extras
-brew install go
-brew install go-app-engine-64
-brew install gradle112
+brew install go --cross-compile-common
+brew install gradle
 brew install graphicsmagick
 brew install httpie
 brew install ios-sim
+brew install lastpass-cli
 brew install mercurial
 brew install node
 brew install rust
@@ -47,34 +47,46 @@ brew install the_silver_searcher
 # Brew: Casks
 #
 
-# brew cask install ax88772  # ASIX AX88772 (used in Hamlet USB-Ethernet dongle)
-# brew cask install inkscape
 brew cask install android-studio
-brew cask install appcleaner
+brew cask install ax88772
 brew cask install caffeine
 brew cask install cargo
 brew cask install ccleaner
-brew cask install colors
 brew cask install dropbox
 brew cask install firefox
 brew cask install flash
+brew cask install fluid
 brew cask install flux
-brew cask install gimp
 brew cask install google-chrome
 brew cask install handbrake
+brew cask install hex-fiend
 brew cask install hipchat
+brew cask install intel-haxm
 brew cask install java
-brew cask install mcs783x  # ASIX MCS783x (used in StarTech USBDOCK2)
+brew cask install jdiskreport
+brew cask install lastpass-universal
+brew cask install mcs783x
+brew cask install namechanger
 brew cask install packer
 brew cask install phpstorm
+brew cask install pycharm
+brew cask install shortcat
+brew cask install sketch
 brew cask install skype
 brew cask install spotify
+brew cask install sublime-text3
+brew cask install synergy
 brew cask install teamviewer
 brew cask install time-out
+brew cask install toggldesktop
+brew cask install totalterminal
 brew cask install transmission
 brew cask install usb-overdrive
 brew cask install vagrant
 brew cask install vmware-fusion
+brew cask install webstorm
+brew cask install xquartz
+
 
 #
 # Spotlight
