@@ -23,14 +23,13 @@ end
 # Environment
 #
 
-set -e LC_CTYPE  # Work-around OS X bug
-
 set -x DEBEMAIL    "lorenzo@villani.me"
 set -x DEBFULLNAME "Lorenzo Villani"
 set -x EDITOR      "subl"
 set -x GEM_HOME    "$HOME/.gem"
 set -x GIT_EDITOR  "nano"
 set -x GOPATH      "$HOME/.go"
+set -x LPASS_AGENT_TIMEOUT 28800  # 8 hours
 set -x NPM_HOME    "$HOME/.npm"
 set -x VAGRANT_DEFAULT_PROVIDER       "vmware_fusion"
 set -x VAGRANT_VMWARE_CLONE_DIRECTORY "$HOME/.vagrant.d/vmware"
@@ -49,20 +48,6 @@ end
 #
 
 alias b="$EDITOR -n ~/Development/lvillani.github.io"
-alias bci="brew cask install"
-alias bcu="brew cask uninstall --force"
-alias bi="brew install"
 alias d="$EDITOR -n ~/Development/dotfiles"
-alias e="$EDITOR"
-alias ee="$EDITOR -n"
-alias g="git"
-alias m="make; and make install"
-alias pipi="pip install --user"
+alias p="lpass show --clip --password"
 alias r="source ~/.config/fish/config.fish"
-alias s="find . -type f -iname"
-alias sd="find . -type d -iname"
-alias v="vagrant"
-alias vd="vagrant destroy -f"
-alias vh="vagrant halt"
-alias vp="vagrant provision"
-alias vup="vagrant up"
