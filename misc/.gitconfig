@@ -1,22 +1,23 @@
 [alias]
 	aw = !sh -c 'git diff -w --no-color "$@" | git apply --cached --ignore-whitespace' -
-	br = branch
-	bra = branch -a
+	b = branch
+	ba = branch -a
 	c = commit -a
 	ca = commit -a --amend --no-edit
 	cap = !git commit -a --amend --no-edit && git push --force
 	cl = clean -df
 	co = checkout
-	lol = log --graph --decorate --pretty=oneline --abbrev-commit
-	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	l = log --graph --decorate --pretty=oneline --abbrev-commit
+	p = push -u origin HEAD
+	pf = push --force
 	purr = pull --rebase
-	puf = push --force
-	puo = push -u origin
-	puom = push -u origin master
-	rc = !git reset HEAD --hard && git clean -df
+	r = reset HEAD --hard
+	rp = reset HEAD^1 --hard
+	rc = !git reset HEAD --hard && git clean -dfx
 	rcg = !git reset HEAD --hard && git clean -dfx && git gc --aggressive --prune=all
-	st = status -sb
-	sti = status -sb --ignored
+	s = status -sb
+	sclone = clone --depth 1
+	si = status -sb --ignored
 [color]
 	ui = auto
 [core]
