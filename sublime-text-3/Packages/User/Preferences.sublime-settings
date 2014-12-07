@@ -2,7 +2,7 @@
 	"WrapPlus.break_long_words": false,
 	"WrapPlus.break_on_hyphens": false,
 	"always_show_minimap_viewport": true,
-	"auto_complete": false,
+	"auto_complete": true,
 	"auto_complete_delay": 250,
 	"binary_file_patterns":
 	[
