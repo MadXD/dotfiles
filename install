@@ -20,14 +20,14 @@ MANIFEST = {
         { "source": "fish", "dest": "~/.config/fish" },
         { "source": "misc", "dest": "~/" },
     ],
-    "cygwin": [
-        { "source": "sublime-text-3",   "dest": "${APPDATA}/Sublime Text 3" },
-    ],
     "darwin": [
         { "source": "sublime-text-3", "dest": "~/Library/Application Support/Sublime Text 3" },
     ],
     "linux2": [
         { "source": "sublime-text-3",   "dest": "~/.config/sublime-text-3" },
+    ],
+    "win32": [
+        { "source": "sublime-text-3",   "dest": "${APPDATA}/Sublime Text 3" },
     ],
 }
 
@@ -66,9 +66,9 @@ def symlink(source, dest):
     if os.path.lexists(dest):
         os.unlink(dest)
 
-    if sys.platform == 'cygwin':
-        win_dest = subprocess.check_output(['cygpath', '-a', '-w', dest])[:-1]
-        win_source = subprocess.check_output(['cygpath', '-a', '-w', source])[:-1]
+    if sys.platform == 'win32':
+        win_dest = dest.replace('/', '\\')
+        win_source = source.replace('/', '\\')
 
         subprocess.check_output(['cmd', '/C', 'mklink', win_dest, win_source])
     else:
