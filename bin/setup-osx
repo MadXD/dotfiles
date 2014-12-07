@@ -5,6 +5,16 @@ set -u
 set -x
 
 #
+# Firewall
+#
+
+/usr/libexec/ApplicationFirewall/socketfilterfw --setallowsigned on
+/usr/libexec/ApplicationFirewall/socketfilterfw --setblockall off
+/usr/libexec/ApplicationFirewall/socketfilterfw --setloggingmode off
+/usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
+/usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on  # Must be the last one.
+
+#
 # Install Homebrew - http://brew.sh
 #
 
@@ -15,7 +25,6 @@ test -x "/usr/local/bin/brew" || {
 brew install caskroom/cask/brew-cask || true
 
 brew tap beeftornado/rmtree
-brew tap caskroom/cask
 brew tap homebrew/versions
 
 brew update
@@ -25,22 +34,20 @@ brew upgrade
 # Brew: Formulas
 #
 
-brew install android-sdk
 brew install brew-rmtree
-brew install encfs
+brew install graphicsmagick
+brew install rust
+brew install android-sdk
 brew install fish
 brew install git-extras
 brew install go --cross-compile-common
 brew install gradle
-brew install graphicsmagick
 brew install httpie
 brew install ios-sim
 brew install lastpass-cli
 brew install mercurial
 brew install node
-brew install rust
 brew install ssh-copy-id
-brew install sshfs
 brew install the_silver_searcher
 
 #
@@ -52,10 +59,11 @@ brew cask install ax88772
 brew cask install caffeine
 brew cask install cargo
 brew cask install ccleaner
+brew cask install colorpicker
+brew cask install colorpicker-developer
 brew cask install dropbox
 brew cask install firefox
 brew cask install flash
-brew cask install fluid
 brew cask install flux
 brew cask install google-chrome
 brew cask install handbrake
@@ -63,19 +71,16 @@ brew cask install hex-fiend
 brew cask install hipchat
 brew cask install intel-haxm
 brew cask install java
-brew cask install jdiskreport
 brew cask install lastpass-universal
 brew cask install mcs783x
 brew cask install namechanger
 brew cask install packer
 brew cask install phpstorm
 brew cask install pycharm
-brew cask install shortcat
 brew cask install sketch
 brew cask install skype
 brew cask install spotify
-brew cask install sublime-text3
-brew cask install synergy
+brew cask install sublime-text
 brew cask install teamviewer
 brew cask install time-out
 brew cask install toggldesktop
@@ -88,6 +93,7 @@ brew cask install webstorm
 brew cask install xquartz
 
 
+
 #
 # Spotlight
 #
@@ -95,7 +101,6 @@ brew cask install xquartz
 # Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before.
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
 sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
-
 sudo killall mds || true
 sudo mdutil -i on / || true
 
@@ -104,12 +109,14 @@ sudo mdutil -i on / || true
 #
 
 # Disable local snapshots: http://support.apple.com/kb/ht4878
-sudo tmutil disablelocal
+# sudo tmutil disablelocal
 
 # Don't backup the whole system. Just user files.
 sudo defaults write /Library/Preferences/com.apple.TimeMachine.plist SkipSystemFiles -bool true
 sudo defaults write /Library/Preferences/com.apple.TimeMachine.plist SkipPaths "(
     '/Applications',
+    '/Library',
+    '/opt',
     '/System',
     '/Users/Shared',
     '~${USER}/.android',
