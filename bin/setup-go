@@ -4,7 +4,11 @@ set -e
 set -u
 set -x
 
-go get -u code.google.com/p/go.tools/cmd/goimports
 go get -u github.com/mitchellh/gox
 go get -u github.com/nsf/gocode
 go get -u github.com/tools/godep
+go get -u golang.org/x/tools/cmd/cover
+go get -u golang.org/x/tools/cmd/godoc
+go get -u golang.org/x/tools/cmd/goimports
+go get -u golang.org/x/tools/cmd/gorename
+go get -u golang.org/x/tools/cmd/stringer
