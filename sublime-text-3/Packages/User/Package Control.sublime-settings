@@ -2,6 +2,7 @@
 	"installed_packages":
 	[
 		"AngularJS",
+		"Ansible",
 		"Better CoffeeScript",
 		"CMake",
 		"DashDoc",
