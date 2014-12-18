@@ -23,6 +23,8 @@
 	ui = auto
 [core]
 	whitespace = trailing-space,space-before-tab
+	autocrlf = true
+	eol = lf
 [diff]
 	tool = meld
 [difftool]
