@@ -1,3 +1,6 @@
 {
-    "fmt_cmd": ["goimports"]
+    "comp_lint_enabled": false,
+    "fmt_cmd": ["goimports"],
+    "gslint_enabled": false,
+    "lint_enabled": false
 }

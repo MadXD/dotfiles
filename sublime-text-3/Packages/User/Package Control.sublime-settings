@@ -1,4 +1,9 @@
 {
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2"
+	],
 	"installed_packages":
 	[
 		"AngularJS",
@@ -25,6 +30,9 @@
 		"Sass",
 		"SideBarEnhancements",
 		"SublimeLinter",
+		"SublimeLinter-contrib-golint",
+		"SublimeLinter-contrib-gotype",
+		"SublimeLinter-contrib-govet",
 		"SublimeLinter-contrib-rustc",
 		"SublimeLinter-jshint",
 		"Theme - Flatland",
