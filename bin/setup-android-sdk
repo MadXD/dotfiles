@@ -7,38 +7,37 @@ import subprocess
 
 COMPONENTS = [
     # Base SDK tools
-    'build-tools-19.1.0',
-    'build-tools-20.0.0',
+    'build-tools-21.1.2',
     'platform-tools',
     'tools',
 
-    # Android L
-    'android-L',
-    'doc-L',
-
-    # Platform SDK
-    'android-15',
-    'android-16',
-    'android-19',
+    # Platforms
+    'android-21',
 
     # System Images
-    'sys-img-x86-android-15',
-    'sys-img-x86-android-16',
-    'sys-img-x86-android-19',
+    'sys-img-x86-addon-google_apis-google-21',
+    'sys-img-x86-android-21',
+    'sys-img-x86-android-tv-21',
+    'sys-img-x86-android-wear-21',
+    'sys-img-x86_64-addon-google_apis-google-21',
+    'sys-img-x86_64-android-21',
 
-    # Support
+    # Google Addons
+    'addon-google_apis-google-21',
+
+    # Google Extras
     'extra-android-m2repository',
     'extra-android-support',
-
-    # Google Stuff
-    'addon-google_apis_x86-google-19',
+    'extra-google-admob_ads_sdk',
+    'extra-google-analytics_sdk_v2',
     'extra-google-gcm',
+    'extra-google-google_play_services',
     'extra-google-m2repository',
     'extra-google-play_apk_expansion',
     'extra-google-play_billing',
     'extra-google-play_licensing',
+    'extra-google-simulators',
     'extra-google-webdriver',
 ]
-
 
 subprocess.check_call(['android', 'update', 'sdk', '--no-ui', '--filter', ','.join(COMPONENTS)])
