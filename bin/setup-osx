@@ -34,14 +34,13 @@ brew upgrade
 # Brew: Formulas
 #
 
-brew install brew-rmtree
-brew install graphicsmagick
-brew install rust
 brew install android-sdk
+brew install brew-rmtree
 brew install fish
 brew install git-extras
 brew install go --cross-compile-common
 brew install gradle
+brew install graphicsmagick
 brew install httpie
 brew install ios-sim
 brew install lastpass-cli
@@ -57,7 +56,6 @@ brew install the_silver_searcher
 brew cask install android-studio
 brew cask install ax88772
 brew cask install caffeine
-brew cask install cargo
 brew cask install ccleaner
 brew cask install colorpicker
 brew cask install colorpicker-developer
@@ -71,7 +69,7 @@ brew cask install hex-fiend
 brew cask install hipchat
 brew cask install intel-haxm
 brew cask install java
-brew cask install lastpass-universal
+brew cask install lastpass
 brew cask install mcs783x
 brew cask install namechanger
 brew cask install packer
@@ -80,7 +78,7 @@ brew cask install pycharm
 brew cask install sketch
 brew cask install skype
 brew cask install spotify
-brew cask install sublime-text
+brew cask install sublime-text-dev
 brew cask install teamviewer
 brew cask install time-out
 brew cask install toggldesktop
@@ -91,8 +89,6 @@ brew cask install vagrant
 brew cask install vmware-fusion
 brew cask install webstorm
 brew cask install xquartz
-
-
 
 #
 # Spotlight
