@@ -11,6 +11,8 @@
 	l = log --graph --decorate --pretty=oneline --abbrev-commit
 	p = push -u origin HEAD
 	pf = push -u origin HEAD --force
+	pt = push --tags
+	ptf = push --tags --force
 	purr = pull --rebase
 	r = reset HEAD --hard
 	rp = reset HEAD^1 --hard
