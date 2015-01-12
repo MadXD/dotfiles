@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import subprocess
+
+PACKAGES = [
+    'bower',
+    'ember-cli',
+    'grunt',
+    'gulp',
+    'harp',
+    'jsfmt',
+    'jshint',
+    'yo',
+]
+
+subprocess.check_call(['npm', 'install', '-g'] + PACKAGES)
