@@ -1,17 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-set -e
-set -u
-set -x
+import subprocess
 
-go get -u github.com/golang/lint/golint
-go get -u github.com/mitchellh/gox
-go get -u github.com/nsf/gocode
-go get -u github.com/tools/godep
-go get -u golang.org/x/tools/cmd/cover
-go get -u golang.org/x/tools/cmd/godoc
-go get -u golang.org/x/tools/cmd/goimports
-go get -u golang.org/x/tools/cmd/gorename
-go get -u golang.org/x/tools/cmd/gotype
-go get -u golang.org/x/tools/cmd/stringer
-go get -u golang.org/x/tools/cmd/vet
+PACKAGES = [
+    'github.com/golang/lint/golint',
+    'github.com/kisielk/errcheck',
+    'github.com/mitchellh/gox',
+    'github.com/nsf/gocode',
+    'github.com/tools/godep',
+    'golang.org/x/tools/cmd/cover',
+    'golang.org/x/tools/cmd/godoc',
+    'golang.org/x/tools/cmd/goimports',
+    'golang.org/x/tools/cmd/gorename',
+    'golang.org/x/tools/cmd/gotype',
+    'golang.org/x/tools/cmd/stringer',
+    'golang.org/x/tools/cmd/vet',
+]
+
+for pkg in PACKAGES:
+    subprocess.check_call(['go', 'get', '-u', pkg])
