@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import subprocess
+
+PACKAGES = [
+    'copy_my_conf',
+    'vagrant-cachier',
+    'vagrant-vmware-fusion',
+]
+
+subprocess.check_call(['vagrant', 'plugin', 'install'] + PACKAGES)
