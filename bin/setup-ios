@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import subprocess
+
+PACKAGES = [
+    'deliver',
+    'fastlane',
+    'shenzhen',
+    'snapshot'
+]
+
+for pkg in PACKAGES:
+    subprocess.check_call(['gem', 'install', pkg])
