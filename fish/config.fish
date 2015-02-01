@@ -23,6 +23,8 @@ end
 # Environment
 #
 
+set -e LC_CTYPE
+
 set -x DEBEMAIL "lorenzo@villani.me"
 set -x DEBFULLNAME "Lorenzo Villani"
 set -x EDITOR "subl"
