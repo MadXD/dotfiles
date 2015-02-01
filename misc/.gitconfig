@@ -6,6 +6,7 @@
 	ca = commit -a --amend --no-edit
 	cap = !git commit -a --amend --no-edit && git push --force
 	cl = clean -df
+	clx = clean -dfx
 	co = checkout
 	develer = config user.email 'lvillani@develer.com'
 	l = log --graph --decorate --pretty=oneline --abbrev-commit
