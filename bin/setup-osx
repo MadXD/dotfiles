@@ -43,7 +43,6 @@ brew install gradle
 brew install graphicsmagick
 brew install httpie
 brew install ios-sim
-brew install lastpass-cli
 brew install mercurial
 brew install node
 brew install ssh-copy-id
@@ -61,7 +60,6 @@ brew cask install colorpicker
 brew cask install colorpicker-developer
 brew cask install dropbox
 brew cask install firefox
-brew cask install flash
 brew cask install flux
 brew cask install google-chrome
 brew cask install handbrake
@@ -69,7 +67,6 @@ brew cask install hex-fiend
 brew cask install hipchat
 brew cask install intel-haxm
 brew cask install java
-brew cask install lastpass
 brew cask install mcs783x
 brew cask install namechanger
 brew cask install packer
@@ -82,7 +79,6 @@ brew cask install sublime-text-dev
 brew cask install teamviewer
 brew cask install time-out
 brew cask install toggldesktop
-brew cask install totalterminal
 brew cask install transmission
 brew cask install usb-overdrive
 brew cask install vagrant
@@ -116,8 +112,11 @@ sudo defaults write /Library/Preferences/com.apple.TimeMachine.plist SkipPaths "
     '/System',
     '/Users/Shared',
     '~${USER}/.android',
+    '~${USER}/.cargo',
+    '~${USER}/.cocoapods',
     '~${USER}/.gem',
     '~${USER}/.go',
+    '~${USER}/.gradle',
     '~${USER}/.m2',
     '~${USER}/.npm',
     '~${USER}/.vagrant.d',
