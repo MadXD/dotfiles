@@ -7,6 +7,7 @@ PACKAGES = [
     'github.com/golang/lint/golint',
     'github.com/kisielk/errcheck',
     'github.com/mitchellh/gox',
+    'github.com/motemen/gore',
     'github.com/nsf/gocode',
     'github.com/tools/godep',
     'golang.org/x/tools/cmd/cover',
