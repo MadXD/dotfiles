@@ -31,7 +31,6 @@ set -x EDITOR "subl"
 set -x GEM_HOME "$HOME/.gem"
 set -x GIT_EDITOR "nano"
 set -x GOPATH "$HOME/Development/Go"
-set -x LPASS_AGENT_TIMEOUT 28800  # 8 hours
 set -x NPM_HOME "$HOME/.npm"
 set -x PIP_ALLOW_ALL_EXTERNAL 1
 set -x PIP_USER 1
@@ -50,5 +49,4 @@ end
 
 alias b="$EDITOR -n ~/Development/lvillani.github.io"
 alias d="$EDITOR -n ~/Development/dotfiles"
-alias p="lpass show --clip --password"
 alias r="source ~/.config/fish/config.fish"
