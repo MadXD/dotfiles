@@ -40,4 +40,4 @@ COMPONENTS = [
     'extra-google-webdriver',
 ]
 
-subprocess.check_call(['android', 'update', 'sdk', '--no-ui', '--filter', ','.join(COMPONENTS)])
+subprocess.check_call(['android', 'update', 'sdk','--no-https', '--no-ui', '--filter', ','.join(COMPONENTS)])
