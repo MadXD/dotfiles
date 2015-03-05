@@ -1,0 +1,6 @@
+#!/bin/bash
+
+CAPACITY="$(ioreg -c AppleSmartBattery | grep MaxCapacity | awk '{print $5}')"
+CAPACITY_DESIGN="$(ioreg -c AppleSmartBattery | grep DesignCapacity | awk '{print $5}')"
+
+echo "scale = 2; (${CAPACITY} / ${CAPACITY_DESIGN}) * 100" | bc
