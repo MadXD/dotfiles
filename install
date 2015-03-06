@@ -27,8 +27,8 @@ MANIFEST = {
         { "source": "sublime-text-3",   "dest": "~/.config/sublime-text-3" },
     ],
     "win32": [
-        { "source": "sublime-text-3",    "dest": "${APPDATA}/Sublime Text 3" },
-        { "source": "WindowsPowerShell", "dest": "${UserProfile}/Documents/WindowsPowerShell" },
+        { "source": "sublime-text-3", "dest": "${APPDATA}/Sublime Text 3" },
+        { "source": "powershell",     "dest": "${UserProfile}/Documents/WindowsPowerShell" },
     ],
 }
 
