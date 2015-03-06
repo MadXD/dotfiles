@@ -34,6 +34,7 @@ brew upgrade
 # Brew: Formulas
 #
 
+brew install node010
 brew install android-sdk
 brew install brew-rmtree
 brew install fish
@@ -42,10 +43,11 @@ brew install go --cross-compile-common
 brew install gradle
 brew install graphicsmagick
 brew install httpie
-brew install hub --devel
+brew install hub
 brew install ios-sim
 brew install mercurial
-brew install node
+brew install qt
+brew install qt5
 brew install ssh-copy-id
 brew install the_silver_searcher
 
@@ -73,6 +75,7 @@ brew cask install namechanger
 brew cask install packer
 brew cask install phpstorm
 brew cask install pycharm
+brew cask install qt-creator
 brew cask install sketch
 brew cask install skype
 brew cask install spotify
