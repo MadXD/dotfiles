@@ -27,9 +27,8 @@ set -e LC_CTYPE
 
 set -x DEBEMAIL "lorenzo@villani.me"
 set -x DEBFULLNAME "Lorenzo Villani"
-set -x EDITOR "subl"
+set -x EDITOR "subl -n -w"
 set -x GEM_HOME "$HOME/.gem"
-set -x GIT_EDITOR "nano"
 set -x GOPATH "$HOME/Development/Go"
 set -x NPM_HOME "$HOME/.npm"
 set -x PIP_ALLOW_ALL_EXTERNAL 1
