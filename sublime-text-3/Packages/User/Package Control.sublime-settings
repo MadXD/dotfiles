@@ -1,14 +1,9 @@
 {
-	"in_process_packages":
-	[
-	],
 	"installed_packages":
 	[
 		"AdvancedNewFile",
-		"AngularJS",
 		"Ansible",
 		"ApacheConf.tmLanguage",
-		"Better CoffeeScript",
 		"BracketHighlighter",
 		"CMake",
 		"DashDoc",
