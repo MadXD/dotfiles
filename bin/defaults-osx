@@ -37,10 +37,6 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 defaults write com.apple.Safari HomePage -string "about:blank"
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 
-open "${HOME}/Development/dotfiles/misc/Monokai.terminal"
-defaults write com.apple.Terminal "Default Window Settings" Monokai
-defaults write com.apple.Terminal "Startup Window Settings" Monokai
-
 defaults write com.apple.TextEdit RichText -int 0
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
