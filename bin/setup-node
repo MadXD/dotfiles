@@ -5,12 +5,15 @@ import subprocess
 
 PACKAGES = [
     'bower',
+    'broccoli-cli',
     'ember-cli',
     'grunt',
     'gulp',
     'harp',
     'jsfmt',
     'jshint',
+    'standard',
+    'standard-format'
     'yo',
 ]
 
