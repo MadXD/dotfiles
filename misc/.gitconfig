@@ -40,9 +40,5 @@
 [user]
 	email = lorenzo@villani.me
 	name = Lorenzo Villani
-[filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
 [rerere]
 	enabled = true
