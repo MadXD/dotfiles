@@ -10,5 +10,7 @@ PACKAGES = [
     'snapshot'
 ]
 
+subprocess.check_call(['brew', 'install', 'imagemagick'])
+
 for pkg in PACKAGES:
     subprocess.check_call(['gem', 'install', pkg])
