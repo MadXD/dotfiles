@@ -126,9 +126,12 @@ sudo defaults write /Library/Preferences/com.apple.TimeMachine.plist SkipPaths "
     '~${USER}/.node-gyp',
     '~${USER}/.npm',
     '~${USER}/.vagrant.d',
+    '~${USER}/Applications',
     '~${USER}/Documents/Virtual Machines.localized',
     '~${USER}/Downloads',
-    '~${USER}/Library/Caches',
+    '~${USER}/Library',
+    '~${USER}/Public',
+    '~${USER}/Sites',
     '~${USER}/VirtualBox VMs'
 )"
 
