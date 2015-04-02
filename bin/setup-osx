@@ -71,6 +71,7 @@ brew cask install hipchat
 brew cask install intel-haxm
 brew cask install java
 brew cask install mcs783x
+brew cask install musicbrainz-picard
 brew cask install namechanger
 brew cask install packer
 brew cask install phpstorm
