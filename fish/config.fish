@@ -4,8 +4,8 @@
 
 set -e fish_greeting
 
-source "$HOME/.config/fish/virtualfish/virtual.fish"
-source "$HOME/.config/fish/virtualfish/auto_activation.fish"
+source "$HOME/.config/fish/virtualfish/virtualfish/virtual.fish"
+source "$HOME/.config/fish/virtualfish/virtualfish/auto_activation.fish"
 
 #
 # CDPATH
