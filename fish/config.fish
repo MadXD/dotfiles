@@ -8,18 +8,6 @@ source "$HOME/.config/fish/virtualfish/virtualfish/virtual.fish"
 source "$HOME/.config/fish/virtualfish/virtualfish/auto_activation.fish"
 
 #
-# CDPATH
-#
-
-set -U CDPATH . "$HOME"
-
-for cdentry in "$HOME/Development" "$HOME/Development/develer"
-    if test -d $cdentry
-        set -U CDPATH $CDPATH $cdentry
-    end
-end
-
-#
 # Environment
 #
 
@@ -43,6 +31,19 @@ if test -n $VIRTUAL_ENV
     set -e PIP_USER
     set -x PATH "$VIRTUAL_ENV/bin" $PATH
 end
+
+#
+# CDPATH
+#
+
+set -U CDPATH . "$HOME"
+
+for cdentry in "$GOPATH/src" "$HOME/Development" "$HOME/Development/develer"
+    if test -d $cdentry
+        set -U CDPATH $CDPATH $cdentry
+    end
+end
+
 
 #
 # Aliases
