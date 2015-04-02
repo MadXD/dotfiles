@@ -20,6 +20,10 @@ function fish_prompt --description 'Write out the prompt'
   echo -n (prompt_pwd)
   set_color normal
 
+  if test -n "$VIRTUAL_ENV"
+    printf "|%s%s%s" (set_color blue) (basename "$VIRTUAL_ENV") (set_color normal)
+  end
+
   __terlar_git_prompt
   echo
 
