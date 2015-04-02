@@ -34,11 +34,12 @@ brew upgrade
 # Brew: Formulas
 #
 
-brew install node010
 brew install android-sdk
 brew install brew-rmtree
+brew install dcfldd
 brew install fish
 brew install git-extras
+brew install github-release
 brew install go --cross-compile-common
 brew install gradle
 brew install graphicsmagick
@@ -46,8 +47,7 @@ brew install httpie
 brew install hub
 brew install ios-sim
 brew install mercurial
-brew install qt
-brew install qt5
+brew install node010
 brew install ssh-copy-id
 brew install the_silver_searcher
 
