@@ -30,16 +30,18 @@ set -x DEBFULLNAME "Lorenzo Villani"
 set -x EDITOR "subl -n -w"
 set -x GEM_HOME "$HOME/.gem"
 set -x GOPATH "$HOME/Development/Go"
+set -x npm_config_prefix "$NPM_HOME"
 set -x NPM_HOME "$HOME/.npm"
+set -x PATH "$GEM_HOME/bin" "$GOPATH/bin" "$NPM_HOME/bin" "$HOME/Library/Python/2.7/bin" "$HOME/.local/bin" "/usr/local/bin" "/usr/local/sbin" "/usr/bin" "/usr/sbin" "/bin" "/sbin"
 set -x PIP_ALLOW_ALL_EXTERNAL 1
 set -x PIP_USER 1
 set -x VAGRANT_DEFAULT_PROVIDER "vmware_fusion"
 set -x VAGRANT_VMWARE_CLONE_DIRECTORY "$HOME/.vagrant.d/vmware"
 set -x VAGRANT_VMWARE_FUSION_APP "$HOME/Applications/VMware Fusion.app"
 
-if test -z $VIRTUAL_ENV
-    set -x npm_config_prefix "$NPM_HOME"
-    set -x PATH "$GEM_HOME/bin" "$GOPATH/bin" "$NPM_HOME/bin" "$HOME/Library/Python/2.7/bin" "$HOME/.local/bin" "/usr/local/bin" "/usr/local/sbin" "/usr/bin" "/usr/sbin" "/bin" "/sbin"
+if test -n $VIRTUAL_ENV
+    set -e PIP_USER
+    set -x PATH "$VIRTUAL_ENV/bin" $PATH
 end
 
 #
