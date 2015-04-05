@@ -3,14 +3,22 @@
 
 import subprocess
 
-PACKAGES = [
-    'deliver',
-    'fastlane',
-    'shenzhen',
-    'snapshot'
+BREW_PACKAGES = [
+    'carthage',
+    'imagemagick',
 ]
 
-subprocess.check_call(['brew', 'install', 'imagemagick'])
+GEMS = [
+    'cocoapods',
+    'deliver',
+    'fastlane',
+    'nomad-cli',
+    'shenzhen',
+    'snapshot',
+]
 
-for pkg in PACKAGES:
-    subprocess.check_call(['gem', 'install', pkg])
+for pkg in BREW_PACKAGES:
+    subprocess.check_call(['brew', 'install', pkg])
+
+for gem in GEMS:
+    subprocess.check_call(['gem', 'install', gem])
