@@ -13,7 +13,7 @@ PACKAGES = [
     'jsfmt',
     'jshint',
     'standard',
-    'standard-format'
+    'standard-format',
     'yo',
 ]
 
