@@ -80,7 +80,6 @@ brew cask install qt-creator
 brew cask install sketch
 brew cask install skype
 brew cask install sourcetree
-brew cask install spotify
 brew cask install sublime-text-dev
 brew cask install teamviewer
 brew cask install time-out
