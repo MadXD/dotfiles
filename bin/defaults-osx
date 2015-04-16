@@ -10,6 +10,11 @@ set -e
 set -u
 set -x
 
+touch "${HOME}/Development/.metadata_never_index"
+touch "${HOME}/Downloads/.metadata_never_index"
+touch "${HOME}/Public/.metadata_never_index"
+touch "${HOME}/Sites/.metadata_never_index"
+
 defaults write com.apple.ActivityMonitor IconType -int 5
 defaults write com.apple.ActivityMonitor ShowCategory -int 0
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
