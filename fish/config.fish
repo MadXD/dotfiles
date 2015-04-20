@@ -30,16 +30,16 @@ set -x GEM_HOME "$HOME/.gem"
 set -x GOPATH "$HOME/Development/Go"
 set -x npm_config_prefix "$NPM_HOME"
 set -x NPM_HOME "$HOME/.npm"
-set -x PATH "$GEM_HOME/bin" "$GOPATH/bin" "$NPM_HOME/bin" "$HOME/.local/bin" "$HOME/.config/fish/autojump/bin" "/usr/local/bin" "/usr/local/sbin" "/usr/bin" "/usr/sbin" "/bin" "/sbin"
 set -x PIP_ALLOW_ALL_EXTERNAL 1
 set -x PIP_USER 1
 set -x VAGRANT_DEFAULT_PROVIDER "vmware_fusion"
 set -x VAGRANT_VMWARE_CLONE_DIRECTORY "$HOME/.vagrant.d/vmware"
 set -x VAGRANT_VMWARE_FUSION_APP "$HOME/Applications/VMware Fusion.app"
 
-if test -n "$VIRTUAL_ENV"
+if test -z "$VIRTUAL_ENV"
+    set -x PATH "$GEM_HOME/bin" "$GOPATH/bin" "$NPM_HOME/bin" "$HOME/.local/bin" "$HOME/.config/fish/autojump/bin" "/usr/local/bin" "/usr/local/sbin" "/usr/bin" "/usr/sbin" "/bin" "/sbin"
+else
     set -e PIP_USER
-    set -x PATH "$VIRTUAL_ENV/bin" $PATH
 end
 
 #
