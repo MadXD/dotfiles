@@ -37,7 +37,7 @@ set -x VAGRANT_DEFAULT_PROVIDER "vmware_fusion"
 set -x VAGRANT_VMWARE_CLONE_DIRECTORY "$HOME/.vagrant.d/vmware"
 set -x VAGRANT_VMWARE_FUSION_APP "$HOME/Applications/VMware Fusion.app"
 
-if test -n $VIRTUAL_ENV
+if test -n "$VIRTUAL_ENV"
     set -e PIP_USER
     set -x PATH "$VIRTUAL_ENV/bin" $PATH
 end
