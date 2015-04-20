@@ -5,9 +5,7 @@
 	"installed_packages":
 	[
 		"AdvancedNewFile",
-		"Ansible",
 		"ApacheConf.tmLanguage",
-		"ApplySyntax",
 		"Babel",
 		"BracketHighlighter",
 		"CMake",
@@ -31,6 +29,7 @@
 		"Rust",
 		"SCSS",
 		"SideBarEnhancements",
+		"SSH Config",
 		"SublimeLinter",
 		"SublimeLinter-contrib-golint",
 		"SublimeLinter-contrib-gotype",

@@ -9,6 +9,15 @@ source "$HOME/.config/fish/virtualfish/virtualfish/auto_activation.fish"
 source "$HOME/.config/fish/virtualfish/virtualfish/virtual.fish"
 
 #
+# Colors! (NOTE: Needed on Linux)
+#
+
+set -U fish_color_cwd -o green
+set -U fish_color_error -o red
+set -U fish_color_host -o cyan
+set -U fish_color_user -o green
+
+#
 # Environment
 #
 
@@ -21,7 +30,7 @@ set -x GEM_HOME "$HOME/.gem"
 set -x GOPATH "$HOME/Development/Go"
 set -x npm_config_prefix "$NPM_HOME"
 set -x NPM_HOME "$HOME/.npm"
-set -x PATH "$GEM_HOME/bin" "$GOPATH/bin" "$NPM_HOME/bin" "$HOME/Library/Python/2.7/bin" "$HOME/.local/bin" "$HOME/.config/fish/autojump/bin" "/usr/local/bin" "/usr/local/sbin" "/usr/bin" "/usr/sbin" "/bin" "/sbin"
+set -x PATH "$GEM_HOME/bin" "$GOPATH/bin" "$NPM_HOME/bin" "$HOME/.local/bin" "$HOME/.config/fish/autojump/bin" "/usr/local/bin" "/usr/local/sbin" "/usr/bin" "/usr/sbin" "/bin" "/sbin"
 set -x PIP_ALLOW_ALL_EXTERNAL 1
 set -x PIP_USER 1
 set -x VAGRANT_DEFAULT_PROVIDER "vmware_fusion"

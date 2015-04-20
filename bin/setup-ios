@@ -12,13 +12,13 @@ GEMS = [
     'cocoapods',
     'deliver',
     'fastlane',
+    'jazzy',
     'nomad-cli',
     'shenzhen',
     'snapshot',
 ]
 
-for pkg in BREW_PACKAGES:
-    subprocess.check_call(['brew', 'install', pkg])
+# for pkg in BREW_PACKAGES:
+#     subprocess.check_call(['brew', 'install', pkg])
 
-for gem in GEMS:
-    subprocess.check_call(['gem', 'install', gem])
+subprocess.check_call(['gem', 'install'] + GEMS)
