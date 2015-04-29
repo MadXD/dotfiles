@@ -63,6 +63,10 @@ alias b="$EDITOR -n ~/Development/lvillani.github.io"
 alias d="$EDITOR -n ~/Development/dotfiles"
 alias r="source ~/.config/fish/config.fish"
 
-if test -x "/usr/local/bin/hub"
-    alias git="hub"
+if test -x (which hub)
+    alias git=hub
+end
+
+if test -x (which nvs)
+    alias svn=nvs
 end
