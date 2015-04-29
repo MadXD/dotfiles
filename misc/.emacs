@@ -12,7 +12,9 @@
 (when (not (file-exists-p "~/.emacs.d/elpa"))
   (package-refresh-contents))
 
-(dolist (pkg '(multiple-cursors
+(dolist (pkg '(go-mode
+	       markdown-mode
+	       multiple-cursors
 	       projectile
 	       smex
 	       yaml-mode))
@@ -25,6 +27,7 @@
 
 (column-number-mode t)
 (cua-mode t)
+(electric-indent-mode t)
 (electric-pair-mode t)
 (global-auto-revert-mode t)
 (global-hl-line-mode t)
@@ -40,6 +43,7 @@
 (ido-mode t)
 (ido-everywhere t)
 
+(defalias 'yes-or-no-p 'y-or-n-p)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
@@ -52,6 +56,7 @@
 (global-set-key (kbd "C-s") 'save-buffer)
 (setq auto-save-default nil)
 (setq ido-enable-flex-matching t)
+(setq inhibit-startup-message t)
 (setq linum-format "%4d \u2502")
 (setq mac-command-modifier 'control)
 (setq recentf-max-menu-items 250)
