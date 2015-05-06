@@ -5,8 +5,11 @@
 	"installed_packages":
 	[
 		"AdvancedNewFile",
+		"Ansible",
 		"ApacheConf.tmLanguage",
+		"ApplySyntax",
 		"Babel",
+		"Better CoffeeScript",
 		"BracketHighlighter",
 		"CMake",
 		"DashDoc",
