@@ -15,29 +15,31 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 MANIFEST = {
-    "any": [
-        { "source": "bin",  "dest": "~/.local/bin" },
+    "unix": [
+        { "source": "bin", "dest": "~/.local/bin" },
         { "source": "fish", "dest": "~/.config/fish" },
         { "source": "misc", "dest": "~/" },
-    ],
-    "darwin": [
-        { "source": "sublime-text-3", "dest": "~/Library/Application Support/Sublime Text 3" },
-    ],
-    "linux2": [
-        { "source": "sublime-text-3",   "dest": "~/.config/sublime-text-3" },
+        { "source": "sublime-text-3", "dest": "~/.config/sublime-text-3" },
     ],
     "win32": [
-        { "source": "sublime-text-3", "dest": "${APPDATA}/Sublime Text 3" },
-        { "source": "powershell",     "dest": "${UserProfile}/Documents/WindowsPowerShell" },
+        { "source": "emacs.d", "dest": "${APPDATA}\\.emacs.d" },
+        { "source": "powershell", "dest": "${UserProfile}\\Documents\\WindowsPowerShell" },
+        { "source": "sublime-text-3", "dest": "${APPDATA}\\Sublime Text 3" },
     ],
 }
 
 
 def main():
-    # Install files from most general to more specific platforms.
-    for section in ['any', sys.platform]:
-        if section in MANIFEST:
-            process_entries(MANIFEST[section])
+    process_entries(MANIFEST[platform()])
+
+
+def platform():
+    if sys.platform == "darwin" or sys.platform == "linux2":
+        return "unix"
+    elif sys.platform == "win32":
+        return "win32"
+    else:
+        raise Exception("Unknown platform")
 
 
 def process_entries(entries):
@@ -61,17 +63,16 @@ def install(source, dest):
 
 
 def symlink(source, dest):
-    if not os.path.exists(os.path.dirname(dest)):
-        os.makedirs(os.path.dirname(dest))
+    dirname = os.path.dirname(dest)
+
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
 
     if os.path.lexists(dest):
         os.unlink(dest)
 
     if sys.platform == 'win32':
-        win_dest = dest.replace('/', '\\')
-        win_source = source.replace('/', '\\')
-
-        subprocess.check_output(['cmd', '/C', 'mklink', win_dest, win_source])
+        subprocess.check_output(['cmd', '/C', 'mklink', dest, source])
     else:
         os.symlink(source, dest)
 
