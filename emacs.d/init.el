@@ -20,6 +20,7 @@
                markdown-mode
                monokai-theme
                multiple-cursors
+               powershell
                projectile
                sass-mode
                scss-mode
@@ -51,11 +52,8 @@
 (global-set-key (kbd "<end>") 'end-of-line)
 (global-set-key (kbd "<home>") 'beginning-of-line)
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C-S-p") 'smex)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-f") 'isearch-forward)
 (global-set-key (kbd "C-p") 'projectile-find-file)
 (global-set-key (kbd "C-s") 'save-buffer)
@@ -63,7 +61,6 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 (setq-default mac-command-modifier 'control)
 (setq-default recentf-max-menu-items 100)
-(setq-default vc-follow-symlinks nil)
 
 (defun ido-recentf-open ()
   "Use `ido-completing-read' to \\[find-file] a recent file"
@@ -100,6 +97,7 @@
  '(gc-cons-threshold 20000000)
  '(global-linum-mode t)
  '(gofmt-command "goimports")
+ '(ido-everywhere t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-echo-area-message "lvillani")
  '(inhibit-startup-screen t)
@@ -112,4 +110,7 @@
  '(show-paren-delay 0)
  '(tab-width 4)
  '(tool-bar-mode nil)
- '(truncate-lines t))
+ '(truncate-lines t)
+ '(user-full-name "Lorenzo Villani")
+ '(user-mail-address "lorenzo@villani.me")
+ '(vc-follow-symlinks t))
