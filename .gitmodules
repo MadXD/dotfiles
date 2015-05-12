@@ -1,6 +1,0 @@
-[submodule "fish/virtualfish"]
-	path = fish/virtualfish
-	url = git://github.com/adambrenecki/virtualfish.git
-[submodule "fish/autojump"]
-	path = fish/autojump
-	url = https://github.com/joelthelion/autojump.git
