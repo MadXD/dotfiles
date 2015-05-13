@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import subprocess
+
+PACKAGES = [
+    'autopep8',
+    'isort',
+    'pylint',
+]
+
+for pkg in PACKAGES:
+    subprocess.check_call(['pip', 'install', '--user', pkg])
