@@ -60,6 +60,8 @@ end
 #
 
 if test -n "$XPC_FLAGS"
+    alias emacs="open -a $HOME/Applications/Emacs.app"
+
     set -e LC_CTYPE
 
     if test -z "$VIRTUAL_ENV"

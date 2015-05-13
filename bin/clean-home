@@ -9,49 +9,56 @@ import os
 import os.path
 
 
+args = None
+
+
 def main():
+    global args
     args = parse_args()
 
     for dirpath, dirnames, filenames in os.walk(os.path.expanduser("~")):
         for dir_name in dirnames:
-            chmod(os.path.join(dirpath, dir_name), 0700, verbose=args.verbose)
+            chmod(os.path.join(dirpath, dir_name), 0700)
 
         for file_name in filenames:
             file_path = os.path.join(dirpath, file_name)
 
             if file_name == ".DS_Store":
-                remove(file_path, verbose=args.verbose)
-            elif os.path.islink(file_path) and not os.path.exists(os.readlink(file_path)):
-                remove(file_path, verbose=args.verbose)
+                remove(file_path)
+            # elif os.path.islink(file_path) and not os.path.exists(os.readlink(file_path)):
+            #     remove(file_path)
             elif os.access(file_path, os.X_OK):
-                chmod(file_path, 0700, verbose=args.verbose)
+                chmod(file_path, 0700)
             else:
-                chmod(file_path, 0600, verbose=args.verbose)
+                chmod(file_path, 0600)
 
 
 def parse_args():
     arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument('-n', '--dry-run', action='store_true', required=False)
     arg_parser.add_argument('-v', '--verbose', action='store_true', required=False)
 
     return arg_parser.parse_args()
 
 
-def chmod(path, mode, verbose=False):
+def chmod(path, mode):
     try:
-        if verbose:
+        if args.verbose:
             print('chmod %s %s' % (path, mode))
 
-        os.chmod(path, mode)
+        if not args.dry_run:
+            os.chmod(path, mode)
     except OSError:
         print('Failed to chmod %s' % path)
 
 
-def remove(path, verbose=False):
+def remove(path):
     try:
-        if verbose:
+        if args.verbose:
             print('rm %s' % path)
 
-        os.remove(path)
+        if not args.dry_run:
+            os.remove(path)
     except OSError:
         print('Warning: Failed to remove %s' % path)
 

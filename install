@@ -17,6 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 MANIFEST = {
     "unix": [
         { "source": "bin", "dest": "~/.local/bin" },
+        { "source": "emacs.d", "dest": "~/.emacs.d" },
         { "source": "fish", "dest": "~/.config/fish" },
         { "source": "misc", "dest": "~/" },
         { "source": "sublime-text-3", "dest": "~/.config/sublime-text-3" },

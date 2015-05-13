@@ -1,0 +1,79 @@
+#!/usr/bin/env python2.7
+# -*- mode: python -*-
+# -*- coding: utf-8 -*-
+
+from __future__ import print_function
+
+import argparse
+import os
+import os.path
+import subprocess
+import sys
+
+BLACKLIST = []
+CASKROOM = "/opt/homebrew-cask/Caskroom"
+
+
+def main():
+    args = parse_args()
+    casks = removable_casks()
+
+    if not casks:
+        sys.exit(0)
+
+    if not args.uninstall:
+        print('Will uninstall the following casks: ')
+        print('(launch again with -u to effectively remove these)')
+        print('')
+
+        for cask in casks:
+            print(cask)
+
+    if args.uninstall:
+        remove_casks(casks)
+
+
+def parse_args():
+    args = argparse.ArgumentParser()
+    args.add_argument("-u", "--uninstall", action="store_true")
+
+    return args.parse_args()
+
+
+def removable_casks():
+    removable = []
+
+    for cask in get_casks():
+        if cask in BLACKLIST:
+            continue
+
+        removable += [cask + '/' + v for v in removable_versions(cask)]
+
+    return removable
+
+
+def get_casks():
+    return dirs(os.listdir(CASKROOM))
+
+
+def removable_versions(cask):
+    # XXX: We are assuming that lexicographical order is enough to determine
+    # old versions of a cask.
+    return get_versions(cask)[:-1]
+
+
+def get_versions(cask):
+    return dirs(os.listdir(os.path.join(CASKROOM, cask)))
+
+
+def dirs(items):
+    return sorted([item for item in items if item[0].isdigit()])
+
+
+def remove_casks(casks):
+    for cask in casks:
+        subprocess.check_call(["brew", "cask", "zap", cask])
+
+
+if __name__ == "__main__":
+    main()

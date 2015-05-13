@@ -37,6 +37,7 @@ brew upgrade
 brew install android-sdk
 brew install brew-rmtree
 brew install dcfldd
+brew install emacs --with-cocoa
 brew install fish
 brew install git-extras
 brew install github-release

@@ -30,8 +30,8 @@
 	"hot_exit": false,
 	"ignored_packages":
 	[
-		"Markdown",
 		"Makefile",
+		"Markdown",
 		"Vintage"
 	],
 	"open_files_in_new_window": false,
