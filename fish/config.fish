@@ -14,7 +14,7 @@ source "$HOME/.config/fish/virtualfish/virtualfish/virtual.fish"
 
 set -x DEBEMAIL "lorenzo@villani.me"
 set -x DEBFULLNAME "Lorenzo Villani"
-set -x EDITOR "subl -n -w"
+set -x EDITOR "emacsclient -c"
 set -x GEM_HOME "$HOME/.gem"
 set -x GOPATH "$HOME/Development/Go"
 set -x NPM_HOME "$HOME/.npm"
@@ -60,7 +60,7 @@ end
 #
 
 if test -n "$XPC_FLAGS"
-    alias emacs="open -a $HOME/Applications/Emacs.app"
+    alias git="hub"
 
     set -e LC_CTYPE
 
