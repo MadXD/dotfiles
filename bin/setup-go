@@ -4,6 +4,7 @@
 import subprocess
 
 PACKAGES = [
+    'code.google.com/p/rog-go/exp/cmd/godef',
     'github.com/golang/lint/golint',
     'github.com/kisielk/errcheck',
     'github.com/mitchellh/gox',
