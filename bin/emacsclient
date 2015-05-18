@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [[ -n "${XPC_FLAGS}" ]]; then
+    # OS X
+    /usr/local/bin/emacsclient -a "~/.local/bin/emacs" ${@}
+else
+    /usr/bin/emacsclient ${@}
+fi
